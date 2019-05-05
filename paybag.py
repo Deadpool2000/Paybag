@@ -31,7 +31,7 @@ try:
         print(R+"""
 ***************************************"""+Y+"""
             
-Select option to create payload\n"""+B+"""
+Select option to create payload\n"""+CY+"""
 1) Android
 2) Windows
 3) Linux
@@ -43,7 +43,7 @@ Select option to create payload\n"""+B+"""
         print(R+"""
 ***************************************"""+Y+"""
 
-Select option to create listner\n"""+B+"""
+Select option to create listner\n"""+CY+"""
 1) Android
 2) Windows
 3) Linux
