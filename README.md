@@ -8,6 +8,6 @@ Create metasploit payload easily using Paybag
 2) cd Paybag
 3) python3 paybag.py
 
-### All payloads are stored in 'payloads' folder
+### All payloads are stored in 'payload' folder
 
 ### If you have any issue regarding this,Report an issue
