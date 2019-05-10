@@ -215,9 +215,17 @@ Select option to create listner\n"""+CY+"""
                     lst()
                     sel2()
                 elif ch==99:
+                    try:
+                        os.remove('msh.rc')
+                    except FileNotFoundError:
+                        print("")
                     main()
                     sel()
                 else:
+                    try:
+                        os.remove('msh.rc')
+                    except FileNotFoundError:
+                        print("")
                     print(R+"\nInvalid choice! Please try again\n")
                     lst()
                     sel2()                
@@ -232,16 +240,29 @@ Select option to create listner\n"""+CY+"""
             main()
             sel()
         elif c==4:
+            try:
+                os.remove('msh.rc')
+            except FileNotFoundError:
+                print("")
             print(Y+"\nExit.........! Have a nice day :) ")
             print(R+"\n----------"+CY+" Code by:"+G+" Deadpool2000"+R+" ----------\n"+W)
 
         else:
             print(R+"\nInvalid choice ! Please try again :(\n")
+            try:
+                os.remove('msh.rc')
+            except FileNotFoundError:
+                print("")
             main()                
             sel()
     main()                
     sel()
 except KeyboardInterrupt:
+    try:
+        os.remove('msh.rc')
+    except FileNotFoundError:
+        print("")
     print(CY+"""\n
 ***************************************"""+G+
 "\n\n>>> "+R+"Interrupted!"+Y+" Exiting.........\n"+W)
+    print(R+"\n----------"+CY+" Code by:"+G+" Deadpool2000"+R+" ----------\n"+W)
