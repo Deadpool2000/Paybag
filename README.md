@@ -10,10 +10,12 @@ Create metasploit payload easily using Paybag
 2) cd Paybag
 3) python3 paybag.py
 
+
+
 ### Note (Only for Termux users) - 'msfconsole' and 'msfvenom' files must be present in '/data/data/com.termux/files/usr/bin' folder
 
 
-**All payloads are stored in 'payload' folder**
+### All payloads are stored in 'payload' folder
 
 
-**If you have any issue regarding this,Report an issue on 'Issues'**
+### If you have any issue regarding this,Report an issue on 'Issues'
