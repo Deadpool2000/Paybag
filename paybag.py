@@ -23,7 +23,7 @@ try:
 >>> Main menu"""+Y+"""
 
 1) Create a payload
-2) Start multi listner
+2) Start listner
 3) Launch Metasploit
 4) Exit\n""")
 
