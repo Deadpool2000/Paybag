@@ -19,7 +19,7 @@ try:
 >> Payload generator for Metasploit <<""")
     def main():
         print(R+"""
-*************************************************************"""+CY+"""\n
+************************************************"""+CY+"""\n
 >>> Main menu"""+Y+"""
 
 1) Create a payload
@@ -29,7 +29,7 @@ try:
 
     def osi():
         print(R+"""
-*************************************************************"""+Y+"""
+************************************************"""+Y+"""
             
 Select option to create payload\n"""+CY+"""
 1) Android
@@ -41,7 +41,7 @@ Select option to create payload\n"""+CY+"""
 
     def lst():
         print(R+"""
-*************************************************************"""+Y+"""
+************************************************"""+Y+"""
 
 Select option to create listner\n"""+CY+"""
 1) Android
@@ -53,7 +53,7 @@ Select option to create listner\n"""+CY+"""
     def ter():
         if os.path.isfile('/data/data/com.termux/files/usr/bin/bash')==True:
             print(R+"""
-*************************************************************\n"""
+************************************************\n"""
 +Y+"""\nTermux Detected ! Metasploit can't work in some cases. Make sure Metasploit is properly installed ! \n"""+W)
     def check():
         if os.path.isfile("payload/test.txt")==True:
@@ -61,14 +61,14 @@ Select option to create listner\n"""+CY+"""
     def check2():
         if os.path.isfile('/usr/bin/msfconsole')==False:
             print(R+"""
-*************************************************************\n"""
+************************************************\n"""
 +Y+"\nmsfconsole not found ! Please install Meatsploit-Framework properly and try again :( \n"+W)
             exit(0)
     def ch3():
         if os.path.isfile('/data/data/com.termux/files/usr/bin/bash')==True:
             if os.path.isfile('/data/data/com.termux/files/usr/bin/msfvenom')==False:
                 print(R+"""
-*************************************************************\n"""
+************************************************\n"""
 +Y+"\nmsfconsole and msfvenom not found in '/data/data/com.termux/files/usr/bin/'\nPlease install Meatsploit-Framework properly and try again :( \n"+W)
                 exit(0)
             else:
@@ -267,7 +267,7 @@ Select option to create listner\n"""+CY+"""
             except FileNotFoundError:
                 print("")
             print(Y+"\nExit.........! Have a nice day :) ")
-            print(R+"\n-----------------"+CY+" Code by:"+G+" Deadpool2000"+R+" -----------------\n"+W)
+            print(R+"\n------------"+CY+" Code by:"+G+" Deadpool2000"+R+" ------------\n"+W)
 
         else:
             print(R+"\nInvalid choice ! Please try again :(\n")
@@ -289,6 +289,6 @@ except KeyboardInterrupt:
     except FileNotFoundError:
         print("")
     print(CY+"""\n
-*************************************************************"""+G+
+************************************************"""+G+
 "\n\n>>> "+R+"Interrupted!"+Y+" Exiting.........\n"+W)
-    print(R+"\n-----------------"+CY+" Code by:"+G+" Deadpool2000"+R+" -----------------\n"+W)
+    print(R+"\n------------"+CY+" Code by:"+G+" Deadpool2000"+R+" ------------\n"+W)
