@@ -52,6 +52,10 @@ Select option to create listner\n"""+CY+"""
 99) Back to main menu\n""")
         
     def check():
+        try:
+            os.remove('msh.rc')
+        except FileNotFoundError:
+            print("")
         if os.path.isfile("payload/test.txt")==True:
             os.remove("payload/test.txt")
     def check2():
