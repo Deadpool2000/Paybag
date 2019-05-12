@@ -50,11 +50,7 @@ Select option to create listner\n"""+CY+"""
 4) Mac OS
 
 99) Back to main menu\n""")
-    def ter():
-        if os.path.isfile('/data/data/com.termux/files/usr/bin/bash')==True:
-            print(R+"""
-************************************************\n"""
-+Y+"""\nTermux Detected ! Metasploit can't work in some cases. Make sure Metasploit is properly installed ! \n"""+W)
+        
     def check():
         if os.path.isfile("payload/test.txt")==True:
             os.remove("payload/test.txt")
@@ -280,7 +276,6 @@ Select option to create listner\n"""+CY+"""
             sel()
     check()
     check2()
-    ter()
     ch3()
     main()                
     sel()
