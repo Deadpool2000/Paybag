@@ -59,11 +59,12 @@ Select option to create listner\n"""+CY+"""
         if os.path.isfile("payload/test.txt")==True:
             os.remove("payload/test.txt")
     def check2():
-        if os.path.isfile('/usr/bin/msfconsole')==False:
-            print(R+"""
+        if os.path.isfile('/data/data/com.termux/files/usr/bin/bash')==False:
+            if os.path.isfile('/usr/bin/msfconsole')==False:
+                print(R+"""
 ************************************************\n"""
 +Y+"\nmsfconsole not found ! Please install Meatsploit-Framework properly and try again :( \n"+W)
-            exit(0)
+                exit(0)
     def ch3():
         if os.path.isfile('/data/data/com.termux/files/usr/bin/bash')==True:
             if os.path.isfile('/data/data/com.termux/files/usr/bin/msfvenom')==False:
