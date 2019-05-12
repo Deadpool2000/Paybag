@@ -19,14 +19,14 @@ Create metasploit payload easily using Paybag
 **2) Start Listner**
 - After creating payload,send it to victim & execute it on victim machine.
 - After execution,Select **'Start listner'**,give LHOST and LPORT which used while creating payload.
-- Now wait for a connection.
+- Now wait until a successfull connection.
 
-**3) Lauch Metasploit**
+**3) Launch Metasploit**
 - Start Metasploit using **Launch Metasploit** option.
 
 -----------------------------------------------------------------------------------------------------------------
 
-### Note (Only for Termux users) -
+### # Note (Only for Termux users) -
 
 **'msfconsole' and 'msfvenom' files must be present in '/data/data/com.termux/files/usr/bin' folder.**
 
