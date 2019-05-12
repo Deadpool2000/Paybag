@@ -51,7 +51,7 @@ Select option to create listner\n"""+CY+"""
 
 99) Back to main menu\n""")
     def ter():
-        if os.path.isfile('/data/data/co.termux/files/usr/bin/bash')==True:
+        if os.path.isfile('/data/data/com.termux/files/usr/bin/bash')==True:
             print(R+"""
 *************************************************************\n"""
 +Y+"""\nTermux Detected ! Metasploit can't work in some cases. Make sure Metasploit is properly installed ! \n"""+W)
@@ -65,8 +65,8 @@ Select option to create listner\n"""+CY+"""
 +Y+"\nmsfconsole not found ! Please install Meatsploit-Framework properly and try again :( \n"+W)
             exit(0)
     def ch3():
-        if os.path.isfile('/data/data/co.termux/files/usr/bin/bash')==True:
-            if os.path.isfile('/data/data/co.termux/files/usr/bin/msfvenom')==False:
+        if os.path.isfile('/data/data/com.termux/files/usr/bin/bash')==True:
+            if os.path.isfile('/data/data/com.termux/files/usr/bin/msfvenom')==False:
                 print(R+"""
 *************************************************************\n"""
 +Y+"\nmsfconsole and msfvenom not found in '/data/data/com.termux/files/usr/bin/'\nPlease install Meatsploit-Framework properly and try again :( \n"+W)
