@@ -29,7 +29,7 @@ Create metasploit payload easily using Paybag
 # Note 
 ### (Only for Termux users) -
 
-**'msfconsole' and 'msfvenom' files must be present in '/data/data/com.termux/files/usr/bin' folder.**
+**'msfconsole' and 'msfvenom' files must be present in '/data/data/com.termux/files/usr/bin/' folder.**
 
 ------------------------------------------------------------------------------------------------------------------
 
