@@ -17,8 +17,8 @@ try:
 """+Y+"""
            [--> v1.0 <--]"""+G+"""
 
->> Payload generator for Metasploit <<"""+B+"""
-
+>> Payload generator for Metasploit <<"""+CY+"""
+      ---------------------------"""+B+"""
         Code By -> Deadpool2000""")
     def main():
         print(R+"""************************************************"""+CY+"""\n
