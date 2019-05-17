@@ -35,9 +35,9 @@ Create metasploit payload easily using Paybag
 **A] Remove old Metasploit (If present)**
 
 **B] Then run following commands in termux:-**
-- apt install unstable-repo
-- apt update && apt upgrade
-- apt install metasploit
+1) apt install unstable-repo
+2) apt update && apt upgrade
+3) apt install metasploit
 
 ------------------------------------------------------------------------------------------------------------------
 
