@@ -3,7 +3,7 @@
 Create metasploit payload easily using Paybag
 
 
-![sc](https://user-images.githubusercontent.com/32305505/57197041-11677280-6f80-11e9-88f2-0a97ed4aaec8.png)
+![Screenshot at 2019-05-17 10-47-49](https://user-images.githubusercontent.com/32305505/57904787-dfb0ae80-7891-11e9-8301-34571fcf7dac.png)
 
 # Installation
 1) git clone https://github.com/Deadpool2000/Paybag.git
@@ -16,9 +16,9 @@ Create metasploit payload easily using Paybag
 **1) Create a payload**
 - Create a payload by just giving LHOST and LPORT and send it to victim.
 
-**2) Start Listner**
+**2) Start Handler**
 - After creating payload,send it to victim & execute it on victim machine.
-- After execution,Select **'Start listner'**,give LHOST and LPORT which used while creating payload.
+- After execution,Select **'Start Handler'**,give LHOST and LPORT which used while creating payload.
 - Now wait until a successfull connection.
 
 **3) Launch Metasploit**
