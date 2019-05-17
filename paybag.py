@@ -275,7 +275,8 @@ Select option to create handler\n"""+CY+"""
             except FileNotFoundError:
                 print("")
             print(Y+"\nExit.........! Have a nice day :) ")
-            print(R+"\n------------"+CY+" Code by:"+G+" Deadpool2000"+R+" ------------\n"+W)
+            print(R+"\n------------"+CY+" Code by:"+G+" Deadpool2000"+R+" ------------"+W)
+            print(R+"------------"+CY+" Youtube:"+G+" https://bit.ly/2HnPZd2"+R+" ------------\n"+W)
 
         else:
             print(R+"\nInvalid choice ! Please try again :(\n")
@@ -299,4 +300,5 @@ except KeyboardInterrupt:
     print(CY+"""\n
 ************************************************"""+G+
 "\n\n>>> "+R+"Interrupted!"+Y+" Exiting.........\n"+W)
-    print(R+"\n------------"+CY+" Code by:"+G+" Deadpool2000"+R+" ------------\n"+W)
+    print(R+"\n------------"+CY+" Code by:"+G+" Deadpool2000"+R+" ------------"+W)
+    print(R+"------------"+CY+" Youtube:"+G+" https://bit.ly/2HnPZd2"+R+" ------------\n"+W)
