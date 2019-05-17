@@ -14,9 +14,12 @@ try:
  / ____/ /_/ / /_/ / /_/ / /_/ / /_/ / 
 /_/    \__,_/\__, /_.___/\__,_/\__, /  
             /____/            /____/   
-"""+G+"""
+"""+Y+"""
+            --> v1.0 <--"""+G+"""
 
->> Payload generator for Metasploit <<""")
+>> Payload generator for Metasploit <<"""+B+"""
+
+        Code By -> Deadpool2000""")
     def main():
         print(R+"""************************************************"""+CY+"""\n
 >>> Main menu"""+Y+"""
