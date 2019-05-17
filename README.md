@@ -2,8 +2,7 @@
 
 Create metasploit payload easily using Paybag
 
-
-![Screenshot at 2019-05-17 10-47-49](https://user-images.githubusercontent.com/32305505/57904787-dfb0ae80-7891-11e9-8301-34571fcf7dac.png)
+![sce](https://user-images.githubusercontent.com/32305505/57907003-995f4d80-7899-11e9-9c02-38436cf1701a.png)
 
 # Installation
 1) git clone https://github.com/Deadpool2000/Paybag.git
