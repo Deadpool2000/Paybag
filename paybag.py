@@ -18,8 +18,7 @@ try:
 
 >> Payload generator for Metasploit <<""")
     def main():
-        print(R+"""
-************************************************"""+CY+"""\n
+        print(R+"""************************************************"""+CY+"""\n
 >>> Main menu"""+Y+"""
 
 1) Create a payload
@@ -50,7 +49,12 @@ Select option to create handler\n"""+CY+"""
 4) Mac OS
 
 99) Back to main menu\n""")
-        
+    def mk():
+        f=os.path.exists("payload")
+        if f:
+            print("")
+        else:
+            os.system("mkdir payload")
     def check():
         try:
             os.remove('msh.rc')
@@ -278,6 +282,7 @@ Select option to create handler\n"""+CY+"""
                 print("")
             main()                
             sel()
+    mk()
     check()
     check2()
     ch3()
