@@ -279,8 +279,7 @@ Select option to create handler\n"""+CY+"""
                             try:
                                 os.remove('msh.rc')
                             except FileNotFoundError:
-                                print("")
-                            print("\n")
+                                print("\n")
                             main()
                             sel()
                         else:
