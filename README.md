@@ -23,22 +23,6 @@ Create metasploit payload easily using Paybag
 **3) Launch Metasploit**
 - Start Metasploit using **Launch Metasploit** option.
 
------------------------------------------------------------------------------------------------------------------
-
-# Note 
-### (Only for Termux users) -
-
-**'msfconsole' and 'msfvenom' files must be present in '/data/data/com.termux/files/usr/bin/' folder.**
-
-**If not ,follow this steps to install Metasploit properly:**
-
-**1] Remove old Metasploit (If present)**
-
-**2] Then run following commands in termux:-**
-1) apt install unstable-repo
-2) apt update && apt upgrade
-3) apt install metasploit
-
 ------------------------------------------------------------------------------------------------------------------
 
 ### All payloads are stored in 'payload' folder.
