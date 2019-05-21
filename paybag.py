@@ -77,7 +77,7 @@ Select option to create handler\n"""+CY+"""
                 print(R+"""
 ************************************************\n"""
 +Y+"""\nmsfconsole and msfvenom not found in '/data/data/com.termux/files/usr/bin/'\n""")
-                p=input(CY+"Install Metasploit in Termux ? (y/n) >>> "+W)
+                p=input(CY+"Install Metasploit in Termux ?"+G+" (y/n)"+R+" >>> "+W)
                 if p=="y":
                     os.system("apt install unstable-repo -y")
                     os.system("apt update && apt install metasploit -y")
