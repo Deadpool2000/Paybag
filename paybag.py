@@ -154,6 +154,7 @@ Select option to create handler\n"""+CY+"""
                             osi()
                             sel1()
                         elif ch==99:
+                            print("\n")
                             main()
                             sel()
                         else:
@@ -279,6 +280,7 @@ Select option to create handler\n"""+CY+"""
                                 os.remove('msh.rc')
                             except FileNotFoundError:
                                 print("")
+                            print("\n")
                             main()
                             sel()
                         else:
