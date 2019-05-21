@@ -88,6 +88,7 @@ Select option to create handler\n"""+CY+"""
                 if p=="y":
                     os.system("apt install unstable-repo -y")
                     os.system("apt update && apt install metasploit -y")
+                    print("\n")
                 elif p=="n":
                     print(Y+"\nExit.........! Have a nice day :) ")
                     print(R+"\n------------"+CY+" Code by:"+G+" Deadpool2000"+R+" ------------"+W)
