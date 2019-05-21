@@ -87,7 +87,7 @@ Select option to create handler\n"""+CY+"""
                     print(R+"------------"+CY+" Youtube:"+G+" https://bit.ly/2HnPZd2"+R+" ------------\n"+W)
                     exit(0)                
                 else:
-                    print("\nInvalid choice\n")
+                    print(R+"\nInvalid choice ! Leaving.......\n"+W)
                     exit(0)
     def sel():
         try:
