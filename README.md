@@ -30,11 +30,11 @@ Create metasploit payload easily using Paybag
 
 **'msfconsole' and 'msfvenom' files must be present in '/data/data/com.termux/files/usr/bin/' folder.**
 
-**If not,follow this steps to install Metasploit properly:**
+**If not ,follow this steps to install Metasploit properly:**
 
-**A] Remove old Metasploit (If present)**
+**1] Remove old Metasploit (If present)**
 
-**B] Then run following commands in termux:-**
+**2] Then run following commands in termux:-**
 1) apt install unstable-repo
 2) apt update && apt upgrade
 3) apt install metasploit
