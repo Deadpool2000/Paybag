@@ -1,5 +1,6 @@
 import os
 import random
+
 try:
     # Color code
     R='\033[91m'
@@ -53,6 +54,7 @@ Select option to create handler\n"""+CY+"""
 4) Mac OS
 
 99) Back to main menu\n""")
+    # Creating directory
     def mk():
         f=os.path.exists("payload")
         if f:
@@ -64,6 +66,8 @@ Select option to create handler\n"""+CY+"""
             os.remove('msh.rc')
         except FileNotFoundError:
             print("")
+            
+    # For normal users
     def check2():
         if os.path.isfile('/data/data/com.termux/files/usr/bin/bash')==False:
             if os.path.isfile('/usr/bin/msfconsole')==False:
@@ -71,6 +75,8 @@ Select option to create handler\n"""+CY+"""
 ************************************************\n"""
 +Y+"\nmsfconsole not found ! Please install Meatsploit-Framework properly and try again :( \n"+W)
                 exit(0)
+                
+    # For termux users
     def ch3():
         if os.path.isfile('/data/data/com.termux/files/usr/bin/bash')==True:
             if os.path.isfile('/data/data/com.termux/files/usr/bin/msfvenom')==False:
@@ -314,7 +320,6 @@ Select option to create handler\n"""+CY+"""
         except ValueError:
             print(R+"\nInvalid input ! Please try again!\n")
             sel()
-    #call
     mk()
     check()
     check2()
