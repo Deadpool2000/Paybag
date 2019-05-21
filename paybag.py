@@ -76,10 +76,19 @@ Select option to create handler\n"""+CY+"""
             if os.path.isfile('/data/data/com.termux/files/usr/bin/msfvenom')==False:
                 print(R+"""
 ************************************************\n"""
-+Y+"\nmsfconsole and msfvenom not found in '/data/data/com.termux/files/usr/bin/'\nPlease install Meatsploit-Framework properly and try again :( \n"+W)
-                exit(0)
-            else:
-                print("")
++Y+"""\nmsfconsole and msfvenom not found in '/data/data/com.termux/files/usr/bin/'\n""")
+                p=input("Install Metasploit in Termux ? (y/n) >>> ")
+                if p=="y":
+                    os.system("apt install unstable-repo -y")
+                    os.system("apt update && apt install metasploit -y")
+                elif p=="n":
+                    print(Y+"\nExit.........! Have a nice day :) ")
+                    print(R+"\n------------"+CY+" Code by:"+G+" Deadpool2000"+R+" ------------"+W)
+                    print(R+"------------"+CY+" Youtube:"+G+" https://bit.ly/2HnPZd2"+R+" ------------\n"+W)
+                
+                else:
+                    print("\nInvalid choice\n")
+                    exit(0)
     def sel():
         try:
             c=int(input(G+"Select your choice >>"+W+" "))
