@@ -68,8 +68,9 @@ Select option to create handler\n"""+CY+"""
             print("")
             
     # For normal users
+    pth="/data/data/com.termux/files/usr/bin/bash"
     def check2():
-        if os.path.isfile('/data/data/com.termux/files/usr/bin/bash')==False:
+        if os.path.isfile(pth)==False:
             if os.path.isfile('/usr/bin/msfconsole')==False:
                 print(R+"""
 ************************************************\n"""
@@ -78,7 +79,7 @@ Select option to create handler\n"""+CY+"""
                 
     # For termux users
     def ch3():
-        if os.path.isfile('/data/data/com.termux/files/usr/bin/bash')==True:
+        if os.path.isfile(pth)==True:
             if os.path.isfile('/data/data/com.termux/files/usr/bin/msfvenom')==False:
                 print(R+"""
 ************************************************\n"""
