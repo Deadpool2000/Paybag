@@ -305,6 +305,7 @@ try:
                 print(Y+"\n>>> Launching msfconsole..................\n\n"+W)
                 os.system("msfconsole")
                 os.system('clear')
+                start()
                 main()
                 sel()
             elif c==4:
