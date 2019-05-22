@@ -23,6 +23,7 @@ try:
 >> Payload generator for Metasploit <<"""+CY+"""
       ---------------------------"""+B+"""
         Code By -> Deadpool2000""")
+        
     def main():
         print(R+"""************************************************"""+CY+"""\n
 >>> Main menu"""+Y+"""
@@ -58,9 +59,7 @@ try:
     # Creating directory
     def mk():
         f=os.path.exists("payload")
-        if f:
-            print("")
-        else:
+        if f==False:
             os.system("mkdir payload")
     def check():
         try:
