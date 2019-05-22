@@ -9,7 +9,8 @@ try:
     CY='\033[96m'
     W='\033[97m'
     B='\033[95m'
-    print(CY+"""
+    def start():
+        print(CY+"""
     ____              __               
    / __ \____ ___  __/ /_  ____ _____ _
   / /_/ / __ `/ / / / __ \/ __ `/ __ `/
@@ -35,7 +36,7 @@ try:
         print(R+"""
 ************************************************"""+Y+"""
             
-Select option to create payload\n"""+CY+"""
+>>> Select option to create payload\n"""+CY+"""
 1) Android
 2) Windows
 3) Linux
@@ -47,7 +48,7 @@ Select option to create payload\n"""+CY+"""
         print(R+"""
 ************************************************"""+Y+"""
 
-Select option to create handler\n"""+CY+"""
+>>> Select option to create handler\n"""+CY+"""
 1) Android
 2) Windows
 3) Linux
@@ -154,7 +155,8 @@ Select option to create handler\n"""+CY+"""
                             osi()
                             sel1()
                         elif ch==99:
-                            print("\n")
+                            os.system('clear')
+                            start()
                             main()
                             sel()
                         else:
@@ -279,7 +281,9 @@ Select option to create handler\n"""+CY+"""
                             try:
                                 os.remove('msh.rc')
                             except FileNotFoundError:
-                                print("\n")
+                                print("")
+                            os.system('clear')
+                            start()
                             main()
                             sel()
                         else:
@@ -298,7 +302,7 @@ Select option to create handler\n"""+CY+"""
             elif c==3:
                 # Launching msfconsole
                 os.system('clear')
-                print(Y+"\nLaunching msfconsole..................\n\n"+W)
+                print(Y+"\n>>> Launching msfconsole..................\n\n"+W)
                 os.system("msfconsole")
                 os.system('clear')
                 main()
@@ -308,21 +312,23 @@ Select option to create handler\n"""+CY+"""
                     os.remove('msh.rc')
                 except FileNotFoundError:
                     print("")
+                print(R+"************************************************")
                 print(Y+"\nExit.........! Have a nice day :) ")
                 print(R+"\n------------"+CY+" Code by:"+G+" Deadpool2000"+R+" ------------"+W)
                 print(R+"------------"+CY+" Youtube:"+G+" https://bit.ly/2HnPZd2"+R+" ------------\n"+W)
 
             else:
-                print(R+"\nInvalid choice ! Please try again :(\n")
                 try:
                     os.remove('msh.rc')
                 except FileNotFoundError:
                     print("")
+                print(R+"\nInvalid choice ! Please try again :(\n")
                 main()                
                 sel()
         except ValueError:
             print(R+"\nInvalid input ! Please try again!\n")
             sel()
+    start()
     mk()
     check()
     check2()
