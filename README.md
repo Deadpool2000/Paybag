@@ -9,7 +9,6 @@ Create metasploit payload easily using Paybag
 2) cd Paybag
 3) python3 paybag.py
 
----------------------------------------------------------------------------------------------------------------
 
 # Usage
 **1) Create a payload**
@@ -23,10 +22,8 @@ Create metasploit payload easily using Paybag
 **3) Launch Metasploit**
 - Start Metasploit using **Launch Metasploit** option.
 
-------------------------------------------------------------------------------------------------------------------
 
 ### All payloads are stored in 'payload' folder.
 
-------------------------------------------------------------------------------------------------------------------
 
 ### If you have any issue regarding this,Report an issue [Here](https://github.com/Deadpool2000/portkali/issues)
