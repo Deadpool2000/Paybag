@@ -3,7 +3,9 @@ import random
 
 try:
     os.system('clear')
+    
     # Color code
+    
     R='\033[91m'
     Y='\033[93m'
     G='\033[92m'
@@ -57,11 +59,14 @@ try:
 4) Mac OS
 
 99) Back to main menu\n""")
+        
     # Creating directory
+    
     def mk():
         f=os.path.exists("payload")
         if f==False:
             os.system("mkdir payload")
+            
     def check():
         try:
             os.remove('msh.rc')
@@ -69,6 +74,7 @@ try:
             print()
             
     # For normal users
+    
     pth="/data/data/com.termux/files/usr/bin/bash"
     def check2():
         if os.path.isfile(pth)==False:
@@ -81,7 +87,9 @@ try:
     def sel():
         try:
             c=int(input(G+"Select your choice >>"+W+" "))
+            
             # Create payload
+            
             if c==1:
                 def sel1():
                     try:
@@ -149,7 +157,9 @@ try:
                 osi()
                 sel1()
             elif c==2:
+                
                 # Creating handler
+                
                 def sel2():
                     try:
                         ch=int(input(G+"Select your choice >>"+W+" "))
@@ -280,7 +290,9 @@ try:
                 lst()
                 sel2()
             elif c==3:
+                
                 # Launching msfconsole
+                
                 os.system('clear')
                 print(Y+"\n>>> Launching msfconsole..................\n\n"+W)
                 os.system("msfconsole")
@@ -311,6 +323,7 @@ try:
             sel()
             
     # For termux users
+    
     def ch3():
         if os.path.isfile(pth)==True:
             if os.path.isfile('/data/data/com.termux/files/usr/bin/msfvenom')==False:
