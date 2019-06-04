@@ -2,6 +2,7 @@ import os
 import random
 
 try:
+    os.system('clear')
     # Color code
     R='\033[91m'
     Y='\033[93m'
@@ -16,7 +17,7 @@ try:
   / /_/ / __ `/ / / / __ \/ __ `/ __ `/
  / ____/ /_/ / /_/ / /_/ / /_/ / /_/ / 
 /_/    \__,_/\__, /_.___/\__,_/\__, /  
-            /____/            /____/   
+            /____/            /____/  
 """+Y+"""
            [--> v1.0 <--]"""+G+"""
 
@@ -37,7 +38,7 @@ try:
         print(R+"""
 ************************************************"""+Y+"""
             
->>> Select option to create payload\n"""+CY+"""
+>>> Select operating system to create payload\n"""+CY+"""
 1) Android
 2) Windows
 3) Linux
@@ -49,7 +50,7 @@ try:
         print(R+"""
 ************************************************"""+Y+"""
 
->>> Select option to create handler\n"""+CY+"""
+>>> Select operating system to create handler\n"""+CY+"""
 1) Android
 2) Windows
 3) Linux
@@ -65,7 +66,7 @@ try:
         try:
             os.remove('msh.rc')
         except FileNotFoundError:
-            print("")
+            print()
             
     # For normal users
     pth="/data/data/com.termux/files/usr/bin/bash"
@@ -73,30 +74,10 @@ try:
         if os.path.isfile(pth)==False:
             if os.path.isfile('/usr/bin/msfconsole')==False:
                 print(R+"""
-************************************************\n"""
+************************************************\n************************************************\n"""
 +Y+"\nmsfconsole not found ! Please install Meatsploit-Framework properly and try again :( \n"+W)
                 exit(0)
                 
-    # For termux users
-    def ch3():
-        if os.path.isfile(pth)==True:
-            if os.path.isfile('/data/data/com.termux/files/usr/bin/msfvenom')==False:
-                print(R+"""
-************************************************\n"""
-+Y+"""\nmsfconsole and msfvenom not found in '/data/data/com.termux/files/usr/bin/'\n""")
-                p=input(CY+"Install Metasploit in Termux ?"+G+" (y/n)"+R+" >>> "+W)
-                if p=="y":
-                    os.system("apt install unstable-repo -y")
-                    os.system("apt update && apt install metasploit -y")
-                    print("\n")
-                elif p=="n":
-                    print(Y+"\nExit.........! Have a nice day :) ")
-                    print(R+"\n------------"+CY+" Code by:"+G+" Deadpool2000"+R+" ------------"+W)
-                    print(R+"------------"+CY+" Youtube:"+G+" https://bit.ly/2HnPZd2"+R+" ------------\n"+W)
-                    exit(0)                
-                else:
-                    print(R+"\nInvalid choice ! Leaving.......\n"+W)
-                    exit(0)
     def sel():
         try:
             c=int(input(G+"Select your choice >>"+W+" "))
@@ -178,7 +159,7 @@ try:
                                 try:
                                     os.remove('msh.rc')
                                 except FileNotFoundError:
-                                    print("")
+                                    print()
                             else:                
                                 lh=input(CY+"\nEnter LHOST:"+W+" ")
                                 lp=int(input(CY+"Enter LPORT:"+W+" "))
@@ -204,7 +185,7 @@ try:
                                 try:
                                     os.remove('msh.rc')
                                 except FileNotFoundError:
-                                    print("")
+                                    print()
                             else:                
                                 lh=input(CY+"\nEnter LHOST:"+W+" ")
                                 lp=int(input(CY+"Enter LPORT:"+W+" "))
@@ -230,7 +211,7 @@ try:
                                 try:
                                     os.remove('msh.rc')
                                 except FileNotFoundError:
-                                    print("")
+                                    print()
                             else:                
                                 lh=input(CY+"\nEnter LHOST:"+W+" ")
                                 lp=int(input(CY+"Enter LPORT:"+W+" "))
@@ -256,7 +237,7 @@ try:
                                 try:
                                     os.remove('msh.rc')
                                 except FileNotFoundError:
-                                    print("")
+                                    print()
                             else:                
                                 lh=input(CY+"\nEnter LHOST:"+W+" ")
                                 lp=int(input(CY+"Enter LPORT:"+W+" "))
@@ -280,7 +261,7 @@ try:
                             try:
                                 os.remove('msh.rc')
                             except FileNotFoundError:
-                                print("")
+                                print()
                             os.system('clear')
                             start()
                             main()
@@ -289,7 +270,7 @@ try:
                             try:
                                 os.remove('msh.rc')
                             except FileNotFoundError:
-                                print("")
+                                print()
                             print(R+"\nInvalid choice! Please try again\n")
                             lst()
                             sel2()
@@ -328,6 +309,27 @@ try:
         except ValueError:
             print(R+"\nInvalid input ! Please try again!\n")
             sel()
+            
+    # For termux users
+    def ch3():
+        if os.path.isfile(pth)==True:
+            if os.path.isfile('/data/data/com.termux/files/usr/bin/msfvenom')==False:
+                print(R+"""
+************************************************\n"""
++Y+"""\nmsfconsole and msfvenom not found in '/data/data/com.termux/files/usr/bin/'\n""")
+                p=input(CY+"Install Metasploit in Termux ?"+G+" (y|n)"+R+" >>> "+W)
+                if p=="y":
+                    os.system("apt install unstable-repo -y")
+                    os.system("apt update && apt install metasploit -y")
+                    print("\n")
+                elif p=="n":
+                    print(Y+"\nExit.........! Have a nice day :) ")
+                    print(R+"\n------------"+CY+" Code by:"+G+" Deadpool2000"+R+" ------------"+W)
+                    print(R+"------------"+CY+" Youtube:"+G+" https://bit.ly/2HnPZd2"+R+" ------------\n"+W)
+                    exit(0)                
+                else:
+                    print(R+"\nInvalid choice ! Leaving.......\n"+W)
+                    exit(0)
     start()
     mk()
     check()
@@ -339,7 +341,7 @@ except KeyboardInterrupt:
     try:
         os.remove('msh.rc')
     except FileNotFoundError:
-        print("")
+        print()
     print(CY+"""\n
 ************************************************"""+G+
 "\n\n>>> "+R+"Interrupted!"+Y+" Exiting.........\n"+W)
