@@ -307,7 +307,7 @@ try:
                     print("")
                 print(R+"************************************************")
                 print(Y+"\nExit.........! Have a nice day :) ")
-                print(R+"\n------------"+CY+" Code by >> "+G+" Deadpool2000"+R+" ------------"+W)
+                print(R+"\n------------"+CY+" Code by >> "+G+" Deadpool2000"+R+" ----------------------"+W)
                 print(R+"------------"+CY+" Youtube >> "+G+" https://bit.ly/2HnPZd2"+R+" ------------\n"+W)
 
             else:
@@ -337,7 +337,7 @@ try:
                     print("\n")
                 elif p=="n":
                     print(Y+"\nExit.........! Have a nice day :) ")
-                    print(R+"\n------------"+CY+" Code by >>"+G+" Deadpool2000"+R+" ------------"+W)
+                    print(R+"\n------------"+CY+" Code by >>"+G+" Deadpool2000"+R+" ----------------------"+W)
                     print(R+"------------"+CY+" Youtube >>"+G+" https://bit.ly/2HnPZd2"+R+" ------------\n"+W)
                     exit(0)                
                 else:
@@ -358,5 +358,5 @@ except KeyboardInterrupt:
     print(CY+"""\n
 ************************************************"""+G+
 "\n\n>>> "+R+"Interrupted!"+Y+" Exiting.........\n"+W)
-    print(R+"\n------------"+CY+" Code by >> "+G+" Deadpool2000"+R+" ------------"+W)
+    print(R+"\n------------"+CY+" Code by >> "+G+" Deadpool2000"+R+" ----------------------"+W)
     print(R+"------------"+CY+" Youtube >> "+G+" https://bit.ly/2HnPZd2"+R+" ------------\n"+W)
