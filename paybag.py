@@ -12,6 +12,9 @@ try:
     CY='\033[96m'
     W='\033[97m'
     B='\033[95m'
+
+    # Start
+    
     def start():
         print(CY+"""
     ____              __               
@@ -63,8 +66,8 @@ try:
     # Creating directory
     
     def mk():
-        f=os.path.exists("payload")
-        if f==False:
+        
+        if os.path.exists("payload")==False:
             os.system("mkdir payload")
             
     def check():
@@ -73,7 +76,7 @@ try:
         except FileNotFoundError:
             print()
             
-    # For normal users
+    # For normal linux users
     
     pth="/data/data/com.termux/files/usr/bin/bash"
     def check2():
@@ -156,10 +159,10 @@ try:
                         sel1()
                 osi()
                 sel1()
+                
+            # Creating handler
+            
             elif c==2:
-                
-                # Creating handler
-                
                 def sel2():
                     try:
                         ch=int(input(G+"Select your choice >>"+W+" "))
@@ -289,10 +292,10 @@ try:
                         sel2()
                 lst()
                 sel2()
+                
+            # Launching msfconsole
+            
             elif c==3:
-                
-                # Launching msfconsole
-                
                 os.system('clear')
                 print(Y+"\n>>> Launching msfconsole..................\n\n"+W)
                 os.system("msfconsole")
@@ -343,6 +346,10 @@ try:
                 else:
                     print(R+"\nInvalid choice ! Leaving.......\n"+W)
                     exit(0)
+
+                    
+    #call
+                    
     start()
     mk()
     check()
