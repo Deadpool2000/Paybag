@@ -1,5 +1,6 @@
 import os
 import random
+import sys
 
 try:
     os.system('clear')
@@ -62,7 +63,13 @@ try:
 4) Mac OS
 
 99) Back to main menu\n""")
-        
+
+    def checkver():
+        if sys.version_info[0] < 3:
+            print(Y+"Use Python 3 to run this script"+R+"!"+W)
+            exit(0)
+
+    
     # Creating directory
     
     def mk():
@@ -348,7 +355,8 @@ try:
                     exit(0)
 
                     
-    #call             
+    #call
+    checkver()
     start()
     mk()
     check()
