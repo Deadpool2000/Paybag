@@ -4,9 +4,6 @@ import sys
 
 try:
     os.system('clear')
-    
-    # Color code
-    
     R='\033[91m'
     Y='\033[93m'
     G='\033[92m'
@@ -14,8 +11,6 @@ try:
     W='\033[97m'
     B='\033[95m'
 
-    # Start
-    
     def start():
         print(CY+"""
     ____              __               
@@ -68,9 +63,6 @@ try:
         if sys.version_info[0] < 3:
             print(Y+"Use Python 3 to run this script"+R+"!"+W)
             exit(0)
-
-    
-    # Creating directory
     
     def mk():
         
@@ -96,10 +88,7 @@ try:
                 
     def sel():
         try:
-            c=int(input(G+"Select your choice >>"+W+" "))
-            
-            # Create payload
-            
+            c=int(input(G+"Select your choice >>"+W+" "))      
             if c==1:
                 def sel1():
                     try:
@@ -166,9 +155,6 @@ try:
                         sel1()
                 osi()
                 sel1()
-                
-            # Creating handler
-            
             elif c==2:
                 def sel2():
                     try:
@@ -299,9 +285,6 @@ try:
                         sel2()
                 lst()
                 sel2()
-                
-            # Launching msfconsole
-            
             elif c==3:
                 os.system('clear')
                 print(Y+"\n>>> Launching msfconsole..................\n\n"+W)
@@ -331,9 +314,6 @@ try:
         except ValueError:
             print(R+"\nInvalid input ! Please try again!\n")
             sel()
-            
-    # For termux users
-    
     def ch3():
         if os.path.isfile(pth)==True:
             if os.path.isfile('/data/data/com.termux/files/usr/bin/msfvenom')==False:
@@ -353,9 +333,7 @@ try:
                 else:
                     print(R+"\nInvalid choice ! Leaving.......\n"+W)
                     exit(0)
-
                     
-    #call
     checkver()
     start()
     mk()
