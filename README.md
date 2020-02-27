@@ -28,7 +28,7 @@ Create metasploit payload easily using Paybag
 
 -----------------------------------------------------------------------------------------------------
 
-### Tool tested on - Ubuntu MATE,Kali linux & Termux
+### Tested on - Ubuntu MATE,Kali linux & Termux
 
 -----------------------------------------------------------------------------------------------------
 
