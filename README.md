@@ -28,4 +28,8 @@ Create metasploit payload easily using Paybag
 
 -----------------------------------------------------------------------------------------------------
 
+### Tool tested on - Ubuntu MATE,Kali linux & Termux
+
+-----------------------------------------------------------------------------------------------------
+
 ### If you have any issue regarding this,Report an issue [Here](https://github.com/Deadpool2000/portkali/issues)
