@@ -40,16 +40,9 @@ Create metasploit payload easily using Paybag
 
 -----------------------------------------------------------------------------------------------------
 
-<<<<<<< HEAD
 ### Tested on - Ubuntu 20.04, Kali linux & Termux
 
 -----------------------------------------------------------------------------------------------------
 
 ### If you have any issue regarding this,report an issue [here](https://github.com/Deadpool2000/portkali/issues)
-=======
-### Tested on - Ubuntu MATE,Kali linux & Termux
 
------------------------------------------------------------------------------------------------------
-
-### If you have any issue regarding this,Report an issue [Here](https://github.com/Deadpool2000/portkali/issues)
->>>>>>> d78ef89eaa13bd899933bb9a4066087fa55aada8
