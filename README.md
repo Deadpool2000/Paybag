@@ -13,7 +13,7 @@ Create metasploit payload easily using Paybag
 4) python3 paybag.py
 
 
-# Whats New in v1.1?
+# What's New in v1.1?
 
 1) Bugs Fixed
 2) Added new payload options
