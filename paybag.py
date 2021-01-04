@@ -1,3 +1,9 @@
+# Paybag
+
+# Author - D3adpool2K
+
+# github - https://github.com/Deadpool2000
+
 import os
 import random
 import sys
