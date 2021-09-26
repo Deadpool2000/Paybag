@@ -7,10 +7,28 @@ Create metasploit payload easily using Paybag
 
 # Installation
 
-1) git clone https://github.com/Deadpool2000/Paybag.git
-2) cd Paybag
-3) pip3 install -r requirements.txt
-4) python3 paybag.py
+### For Linux users -
+    sudo apt-get install python3 python3-pip
+    
+    git clone https://github.com/Deadpool2000/Paybag.git
+    
+    cd Paybag
+    
+    sudo pip3 install -r requirements.txt
+    
+    python3 paybag.py
+    
+### For Termux users -
+    apt install python
+    
+    git clone https://github.com/Deadpool2000/Paybag.git
+    
+    cd Paybag
+    
+    pip3 install -r requirements.txt
+    
+    python3 paybag.py
+
 
 
 # What's New in v1.1?
