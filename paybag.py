@@ -106,9 +106,11 @@ try:
         premsf=['kali','parrot']
         deb=['ubuntu','debian']
         did=distro.like()
-        did2=distro.id() 
+        did2=distro.id()
+        print(did)
+        
         if did in deb:
-            if did2 in premsf:
+            if did in premsf:
                 os.system("sudo apt-get upodate && sudo apt-get install metasploit-framework")
             else:
                 os.system("sudo apt-get install -y build-essential zlib1g zlib1g-dev libpq-dev libpcap-dev libsqlite3-dev ruby ruby-dev")
@@ -550,12 +552,15 @@ try:
 +Y+"""\nmsfconsole and msfvenom not found in '/data/data/com.termux/files/usr/bin/'\n""")
                 p=input(CY+"Install Metasploit in Termux ?"+G+" (y|n)"+R+" >>> "+W)
                 if p=="y":
-                    #os.system("apt install unstable-repo -y")
-                    #os.system("apt update && apt install metasploit -y")
-                    os.system("wget -O metasploit https://raw.githubusercontent.com/Hax4us/Metasploit_termux/master/metasploit.sh")
-                    os.system("sed -i '8s/.*/msfvar=6.1.8/' metasploit")
-                    os.system("chmod +x metasploit && ./metasploit")
-                    os.system("rm metasploit")
+                    ver="6.1.8"
+                    os.system("apt install -y libiconv zlib autoconf bison clang coreutils curl findutils git apr apr-util libffi libgmp libpcap postgresql readline libsqlite openssl libtool libxml2 libxslt ncurses pkg-config wget make ruby libgrpc termux-tools ncurses-utils ncurses unzip zip tar termux-elf-cleaner")
+                    lk="wget -O msf.tar.gz https://github.com/rapid7/metasploit-framework/archive/"+ver+".tar.gz"
+                    os.system(str(lk))
+                    os.system("mv msf.tar.gz $HOME")
+                    os.system("tar -xvf $HOME/msf.tar.gz && mv $HOME/metasploit* $HOME/metasploit-framework && rm $HOME/msf.tar.gz")
+                    os.system("gem install --no-document --verbose rubygems-update && update_rubygems")
+                    os.system("gem install bundler && bundle config build.nokogiri --use-system-libraries && cd $HOME/metasploit-framework && bundle install")
+                    os.system("cp assets/termux/msfconsole $PREFIX/bin/ && cp assets/termux/msfvenom $PREFIX/bin/")
                     os.system('clear')
                     checkver()
                     start()
