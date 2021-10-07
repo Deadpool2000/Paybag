@@ -552,7 +552,6 @@ try:
 +Y+"""\nmsfconsole and msfvenom not found in '/data/data/com.termux/files/usr/bin/'\n""")
                 p=input(CY+"Install Metasploit in Termux ?"+G+" (y|n)"+R+" >>> "+W)
                 if p=="y":
-<<<<<<< HEAD
                     ver="6.1.8"
                     os.system("apt install -y libiconv zlib autoconf bison clang coreutils curl findutils git apr apr-util libffi libgmp libpcap postgresql readline libsqlite openssl libtool libxml2 libxslt ncurses pkg-config wget make ruby libgrpc termux-tools ncurses-utils ncurses unzip zip tar termux-elf-cleaner")
                     lk="wget -O msf.tar.gz https://github.com/rapid7/metasploit-framework/archive/"+ver+".tar.gz"
@@ -562,14 +561,6 @@ try:
                     os.system("gem install --no-document --verbose rubygems-update && update_rubygems")
                     os.system("gem install bundler && bundle config build.nokogiri --use-system-libraries && cd $HOME/metasploit-framework && bundle install")
                     os.system("cp assets/termux/msfconsole $PREFIX/bin/ && cp assets/termux/msfvenom $PREFIX/bin/")
-=======
-                    #os.system("apt install unstable-repo -y")
-                    #os.system("apt update && apt install metasploit -y")
-                    #os.system("wget -O metasploit https://raw.githubusercontent.com/Hax4us/Metasploit_termux/master/metasploit.sh")
-                    #os.system("sed -i '8s/.*/msfvar=6.1.8/' metasploit")
-                    #os.system("chmod +x metasploit && ./metasploit")
-                    #os.system("rm metasploit")
->>>>>>> 004ce087c11bf7b27b421aef9c52d7cb723e3f98
                     os.system('clear')
                     checkver()
                     start()
