@@ -8,6 +8,7 @@ import os
 import random
 import sys
 from prettytable import PrettyTable
+import distro
 
 try:
     os.system('clear')
@@ -29,7 +30,7 @@ try:
 /_/    \__,_/\__, /_.___/\__,_/\__, /  
             /____/            /____/  
 """+Y+"""
-           [--"""+R+""">"""+Y+""" v1.1 """+R+"""<"""+Y+"""--]"""+G+"""
+           [--"""+R+""">"""+Y+""" v1.2 """+R+"""<"""+Y+"""--]"""+G+"""
 
 >> Payload generator for Metasploit <<"""+CY+"""
       ---------------------------"""+B+"""
@@ -100,6 +101,29 @@ try:
         if sys.version_info[0] < 3:
             print(Y+"Use Python 3 to run this script"+R+"!"+W)
             exit(0)
+    def install():
+        print(Y+"\nInstalling Metasploit-framework...\n"+W)
+        premsf=['kali','parrot']
+        deb=['ubuntu','debian']
+        did=distro.like()
+        did2=distro.id()
+        print(did)
+        
+        if did in deb:
+            if did in premsf:
+                os.system("sudo apt-get upodate && sudo apt-get install metasploit-framework")
+            else:
+                os.system("sudo apt-get install -y build-essential zlib1g zlib1g-dev libpq-dev libpcap-dev libsqlite3-dev ruby ruby-dev")
+                os.system("cd $HOME && git clone https://github.com/rapid7/metasploit-framework.git")
+                os.system("cd $HOME/metasploit-framework && sudo gem install bundler && bundle install") 
+                os.system("sudo cp assets/msfconsole /usr/bin/ && sudo cp assets/msfvenom /usr/bin/ && sudo cp assets/msfupdate /usr/bin/")
+                os.system("clear")
+        elif(did==""):
+            print(Y+"\nOther distro detected ! Please install metasploit manually.\n"+W)
+            exit(0)
+        else:
+            print(R+"\nSomething went wrong!\n"+W)
+    
     def mk():
         if os.path.exists("payload")==False:
             os.system("mkdir payload")
@@ -115,6 +139,23 @@ try:
                 print(R+"""
 ************************************************\n************************************************\n"""
 +Y+"\nmsfconsole not found ! Please install Meatsploit-Framework properly and try again :( \n"+W)
+                p=input(CY+"Install Metasploit?"+G+" (y|n)"+R+" >>> "+W)
+                if p=="y":
+                    install()
+                    start()
+                    mk()
+                    check()
+                    check2()
+                    ch3()
+                    main()                
+                    sel()
+                elif p=="n":
+                    print(Y+"\nExit.........! Have a nice day :) ")
+                    print(R+"\n------------"+CY+" Code by >>"+G+" Deadpool2000"+R+" ----------------------"+W)
+                    exit(0)                
+                else:
+                    print(R+"\nInvalid choice ! Leaving.......\n"+W)
+                    exit(0)                    
                 exit(0)
     def cfile(lh,lp,ply):
         f=open("msh.rc","w+")
@@ -485,10 +526,10 @@ try:
                 os.system('clear')
                 print(Y+"\n>>> Launching msfconsole..................\n\n"+W)
                 os.system("msfconsole")
-                os.system('clear')
-                start()
-                main()
-                sel()
+                #os.system('clear')
+               # start()
+                #main()
+               # sel()
             elif c==4:
                 check()
                 print(R+"************************************************")
@@ -511,8 +552,12 @@ try:
 +Y+"""\nmsfconsole and msfvenom not found in '/data/data/com.termux/files/usr/bin/'\n""")
                 p=input(CY+"Install Metasploit in Termux ?"+G+" (y|n)"+R+" >>> "+W)
                 if p=="y":
-                    os.system("apt install unstable-repo -y")
-                    os.system("apt update && apt install metasploit -y")
+                    #os.system("apt install unstable-repo -y")
+                    #os.system("apt update && apt install metasploit -y")
+                    os.system("wget -O metasploit https://raw.githubusercontent.com/Hax4us/Metasploit_termux/master/metasploit.sh")
+                    os.system("sed -i '8s/.*/msfvar=6.1.8/' metasploit")
+                    os.system("chmod +x metasploit && ./metasploit")
+                    os.system("rm metasploit")
                     os.system('clear')
                     checkver()
                     start()

@@ -1,0 +1,2 @@
+#!/bin/sh
+exec ruby "${HOME}/metasploit-framework/msfvenom" "$@"
