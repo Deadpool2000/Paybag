@@ -19,7 +19,7 @@ Create metasploit payload easily using Paybag
     python3 paybag.py
     
 ### For Termux users -
-    apt install python
+    apt install python wget
     
     git clone https://github.com/Deadpool2000/Paybag.git
     
