@@ -106,11 +106,9 @@ try:
         premsf=['kali','parrot']
         deb=['ubuntu','debian']
         did=distro.like()
-        did2=distro.id()
-        print(did)
-        
+        did2=distro.id() 
         if did in deb:
-            if did in premsf:
+            if did2 in premsf:
                 os.system("sudo apt-get upodate && sudo apt-get install metasploit-framework")
             else:
                 os.system("sudo apt-get install -y build-essential zlib1g zlib1g-dev libpq-dev libpcap-dev libsqlite3-dev ruby ruby-dev")
