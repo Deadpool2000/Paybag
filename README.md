@@ -31,12 +31,10 @@ Create metasploit payload easily using Paybag
 
 
 
-# What's New in v1.1?
+# What's New in v1.2?
 
 1) Bugs Fixed
-2) Added new payload options
-3) Removed OSX support
-4) User can select LHOST from table
+2) If metasploit is not installed on your system, it will install automatically on your system (Only works on Debian-based distro and Termux)
 
 
 # Usage
