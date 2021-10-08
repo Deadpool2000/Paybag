@@ -1,2 +1,2 @@
 #!/data/data/com.termux/files/usr/bin/bash
-exec ruby "${HOME}/metasploit-framework/msfconsole" "$@"
+exec ruby "${HOME}/metasploit-framework/msfconsole"

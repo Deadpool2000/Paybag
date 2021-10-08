@@ -1,2 +1,2 @@
 #!/bin/sh
-exec ruby "${HOME}/metasploit-framework/msfconsole" "$@"
+exec ruby "${HOME}/metasploit-framework/msfconsole" 
