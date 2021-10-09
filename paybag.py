@@ -561,6 +561,8 @@ try:
                     os.system("gem install --no-document --verbose rubygems-update && update_rubygems")
                     os.system("gem install bundler && bundle config build.nokogiri --use-system-libraries && cd $HOME/metasploit-framework && bundle install")
                     os.system("cp assets/termux/msfconsole $PREFIX/bin/ && cp assets/termux/msfvenom $PREFIX/bin/")
+                    os.system("chmod +x $PREFIX/bin/msfconsole")
+                    os.system("chmod +x $PREFIX/bin/msfvenom")
                     os.system('clear')
                     checkver()
                     start()
