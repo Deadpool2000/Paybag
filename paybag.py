@@ -557,7 +557,7 @@ try:
                     lk="wget -O msf.tar.gz https://github.com/rapid7/metasploit-framework/archive/"+ver+".tar.gz"
                     os.system(str(lk))
                     os.system("mv msf.tar.gz $HOME")
-                    os.system("tar -xvf $HOME/msf.tar.gz && mv $HOME/metasploit-framework-"+ver+" $HOME/metasploit-framework && rm $HOME/msf.tar.gz")
+                    os.system("tar -xvf $HOME/msf.tar.gz && mv metasploit-framework-"+ver+" $HOME/metasploit-framework && rm $HOME/msf.tar.gz")
                     os.system("gem install --no-document --verbose rubygems-update && update_rubygems")
                     os.system("gem install bundler && bundle config build.nokogiri --use-system-libraries && cd $HOME/metasploit-framework && bundle install")
                     os.system("cp assets/termux/msfconsole $PREFIX/bin/ && cp assets/termux/msfvenom $PREFIX/bin/")
