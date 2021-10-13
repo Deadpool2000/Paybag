@@ -25,9 +25,9 @@ Create metasploit payload easily using Paybag
     
     cd Paybag
     
-    pip3 install -r requirements.txt
+    pip install -r requirements.txt
     
-    python3 paybag.py
+    python paybag.py
 
 
 
