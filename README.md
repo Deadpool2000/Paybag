@@ -31,10 +31,12 @@ Create metasploit payload easily using Paybag
 
 
 
-# What's New in v1.2?
+# What's New in v1.4?
 
 1) Bugs Fixed
-2) If metasploit is not installed on your system, it will install automatically on your system (Only works on Debian-based distro and Termux)
+
+- There are some issues while installing Metasploit in Termux. This update will not install Metasploit in termux. Users need to install it manually.
+
 
 
 # Usage
