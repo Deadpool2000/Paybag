@@ -146,7 +146,7 @@ try:
                     mk()
                     check()
                     check2()
-                    ch3()
+                    
                     main()                
                     sel()
                 elif p=="n":
@@ -569,7 +569,7 @@ try:
                     mk()
                     check()
                     check2()
-                    ch3()
+                   
                     main()                
                     sel()
                 elif p=="n":
@@ -585,7 +585,7 @@ try:
     mk()
     check()
     check2()
-    ch3()
+    #ch3
     main()                
     sel()  
 except KeyboardInterrupt:
