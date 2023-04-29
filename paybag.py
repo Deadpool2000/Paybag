@@ -111,7 +111,7 @@ try:
         
         if did in deb:
             if did in premsf:
-                os.system("sudo apt-get upodate && sudo apt-get install metasploit-framework")
+                os.system("sudo apt-get update && sudo apt-get install metasploit-framework")
             else:
                 os.system("sudo apt-get install -y build-essential zlib1g zlib1g-dev libpq-dev libpcap-dev libsqlite3-dev ruby ruby-dev")
                 os.system("cd $HOME && git clone https://github.com/rapid7/metasploit-framework.git")
