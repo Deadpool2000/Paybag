@@ -31,12 +31,6 @@ Create metasploit payload easily using Paybag
 
 
 
-# What's New in v1.4?
-
-1) Bugs Fixed
-
-- There are some issues while installing Metasploit in Termux. This update will not install Metasploit in termux. Users need to install it manually.
-
 
 
 # Usage
