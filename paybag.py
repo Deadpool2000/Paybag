@@ -103,21 +103,11 @@ try:
             exit(0)
     def install():
         print(Y+"\nInstalling Metasploit-framework...\n"+W)
-        premsf=['kali','parrot']
-        deb=['ubuntu','debian']
         did=distro.like()
         did2=distro.id()
-        print(did)
-        
-        if did in deb:
-            if did in premsf:
-                os.system("sudo curl https://raw.githubusercontent.com/rapid7/metasploit-omnibus/master/config/templates/metasploit-framework-wrappers/msfupdate.erb > msfinstall && sudo chmod 755 msfinstall && ./msfinstall")
-                os.system("clear")
-        elif(did==""):
-            print(Y+"\nOther distro detected ! Please install metasploit manually.\n"+W)
-            exit(0)
-        else:
-            print(R+"\nSomething went wrong!\n"+W)
+        print("Current Distro: "+did)
+        os.system("sudo curl https://raw.githubusercontent.com/rapid7/metasploit-omnibus/master/config/templates/metasploit-framework-wrappers/msfupdate.erb > msfinstall && sudo chmod 755 msfinstall && sudo ./msfinstall")
+        os.system("clear")
     
     def mk():
         if os.path.exists("payload")==False:
