@@ -111,12 +111,7 @@ try:
         
         if did in deb:
             if did in premsf:
-                os.system("sudo apt-get update && sudo apt-get install metasploit-framework")
-            else:
-                os.system("sudo apt-get install -y build-essential zlib1g zlib1g-dev libpq-dev libpcap-dev libsqlite3-dev ruby ruby-dev")
-                os.system("cd $HOME && git clone https://github.com/rapid7/metasploit-framework.git")
-                os.system("cd $HOME/metasploit-framework && sudo gem install bundler && bundle install") 
-                os.system("sudo cp assets/msfconsole /usr/bin/ && sudo cp assets/msfvenom /usr/bin/ && sudo cp assets/msfupdate /usr/bin/")
+                os.system("sudo curl https://raw.githubusercontent.com/rapid7/metasploit-omnibus/master/config/templates/metasploit-framework-wrappers/msfupdate.erb > msfinstall && sudo chmod 755 msfinstall && ./msfinstall")
                 os.system("clear")
         elif(did==""):
             print(Y+"\nOther distro detected ! Please install metasploit manually.\n"+W)
@@ -552,7 +547,7 @@ try:
 +Y+"""\nmsfconsole and msfvenom not found in '/data/data/com.termux/files/usr/bin/'\n""")
                 p=input(CY+"Install Metasploit in Termux ?"+G+" (y|n)"+R+" >>> "+W)
                 if p=="y":
-                    ver="6.3.14"
+                    ver="6.3.43"
                     os.system("apt install -y ruby wget apr apr-util libiconv zlib autoconf bison clang coreutils curl findutils git libffi libgmp libpcap postgresql readline libsqlite openssl libtool libxml2 libxslt ncurses pkg-config make libgrpc termux-tools ncurses-utils ncurses tar termux-elf-cleaner unzip zip")
                     lk="wget -O msf.tar.gz https://github.com/rapid7/metasploit-framework/archive/"+ver+".tar.gz"
                     os.system(str(lk))
