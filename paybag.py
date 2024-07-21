@@ -537,7 +537,7 @@ try:
 +Y+"""\nmsfconsole and msfvenom not found in '/data/data/com.termux/files/usr/bin/'\n""")
                 p=input(CY+"Install Metasploit in Termux ?"+G+" (y|n)"+R+" >>> "+W)
                 if p=="y":
-                    ver="6.3.43"
+                    ver="6.4.17"
                     os.system("apt install -y ruby wget apr apr-util libiconv zlib autoconf bison clang coreutils curl findutils git libffi libgmp libpcap postgresql readline libsqlite openssl libtool libxml2 libxslt ncurses pkg-config make libgrpc termux-tools ncurses-utils ncurses tar termux-elf-cleaner unzip zip")
                     lk="wget -O msf.tar.gz https://github.com/rapid7/metasploit-framework/archive/"+ver+".tar.gz"
                     os.system(str(lk))
